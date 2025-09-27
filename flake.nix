@@ -1,5 +1,5 @@
 {
-  description = "template for hydenix";
+  description = "Simple NixOS flake for terminal based workflow";
 
   inputs = {
     # nixpkgs
@@ -7,7 +7,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/tree/release-25.05";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -2,23 +2,7 @@
   inputs,
   pkgs,
   ...
-}: let
-  # Package configuration - sets up package system with proper overlays
-  # Most users won't need to modify this section
-  pkgs = import inputs.hydenix.inputs.hydenix-nixpkgs {
-    inherit (inputs.hydenix.lib) system;
-    config.allowUnfree = true;
-    overlays = [
-      inputs.hydenix.lib.overlays
-      (final: prev: {
-        userPkgs = import inputs.nixpkgs {
-          inherit (pkgs) system;
-          config.allowUnfree = true;
-        };
-      })
-    ];
-  };
-in {
+}: {
   nixpkgs.pkgs = {
     config.allowUnfree = true;
 
