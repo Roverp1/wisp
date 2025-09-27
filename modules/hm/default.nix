@@ -40,13 +40,15 @@
 
   stylix = {
     targets = {
-      qt.enable = false;
-      gtk.enable = false;
-      vscode.enable = false;
-      xresources.enable = false;
-      sxiv.enable = false;
-
+      #     qt.enable = false;
+      #     gtk.enable = false;
+      #     vscode.enable = false;
+      #     xresources.enable = false;
+      #     sxiv.enable = false;
+      #
       zen-browser.profileNames = ["default"];
     };
   };
+
+  home.stateVersion = "25.05";
 }

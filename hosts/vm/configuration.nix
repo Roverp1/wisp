@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  nixpkgs.pkgs = {
+  nixpkgs = {
     config.allowUnfree = true;
 
     overlays = [
@@ -74,7 +74,7 @@
       "networkmanager"
       "video"
     ]; # User groups (determines permissions)
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
   };
 
   networking.hostName = "wisp-vm";

@@ -11,6 +11,10 @@ in {
   stylix = {
     enable = true;
 
+    # targets = {
+    #   gnome.enable = false;
+    # };
+
     # cursor = {
     #   package = pkgs.bibata-cursors;
     #   name = "Bibata-Modern-Classic";
