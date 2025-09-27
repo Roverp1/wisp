@@ -2,18 +2,16 @@
   description = "template for hydenix";
 
   inputs = {
-    # User's nixpkgs - for user packages
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # Hydenix and its nixpkgs - kept separate to avoid conflicts
-    hydenix = {
-      # Available inputs:
-      # Main: github:richen604/hydenix
-      # Dev: github:richen604/hydenix/dev
-      # Commit: github:richen604/hydenix/<commit-hash>
-      # Version: github:richen604/hydenix/v1.0.0
-      url = "github:richen604/hydenix";
+    home-manager = {
+      url = "github:nix-community/home-manager/tree/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # Nix-index-database - for comma and command-not-found
     nix-index-database = {
@@ -34,9 +32,10 @@
     };
   };
 
-  outputs = {...} @ inputs: let
-    hydenixConfig = inputs.hydenix.inputs.hydenix-nixpkgs.lib.nixosSystem {
-      inherit (inputs.hydenix.lib) system;
+  outputs = {...} @ inputs: {
+    nixosConfigurations.wisp = inputs.nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+
       specialArgs = {
         inherit inputs;
       };
@@ -44,7 +43,5 @@
         ./hosts/vm/configuration.nix
       ];
     };
-  in {
-    nixosConfigurations.hydenix = hydenixConfig;
   };
 }
