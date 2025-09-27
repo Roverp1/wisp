@@ -1,4 +1,8 @@
-{inputs, ...}: let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   # Package configuration - sets up package system with proper overlays
   # Most users won't need to modify this section
   pkgs = import inputs.hydenix.inputs.hydenix-nixpkgs {
@@ -15,32 +19,40 @@
     ];
   };
 in {
-  nixpkgs.pkgs = pkgs; # Set pkgs for hydenix globally
+  nixpkgs.pkgs = {
+    config.allowUnfree = true;
+
+    overlays = [
+      (final: prev: {
+        userPkgs = import inputs.nixpkgs-unstable {
+          inherit (prev) system;
+          config.allowUnfree = true;
+        };
+      })
+    ];
+  };
 
   imports = [
-    # hydenix inputs - Required modules, don't modify unless you know what you're doing
-    inputs.hydenix.inputs.home-manager.nixosModules.home-manager
-    inputs.hydenix.lib.nixOsModules
-    ./../../modules/system # Your custom system modules
-    ./hardware-configuration.nix
-
+    inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix
+    ./../../modules/system
+    ./hardware-configuration.nix
 
     # Hardware Configuration - Uncomment lines that match your hardware
     # Run `lshw -short` or `lspci` to identify your hardware
 
     # GPU Configuration (choose one):
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-nvidia # NVIDIA
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-gpu-amd # AMD
+    # inputs.nixos-hardware.nixosModules.common-gpu-nvidia # NVIDIA
+    # inputs.nixos-hardware.nixosModules.common-gpu-amd # AMD
 
     # CPU Configuration (choose one):
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-amd # AMD CPUs
-    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-cpu-intel # Intel CPUs
+    # inputs.nixos-hardware.nixosModules.common-cpu-amd # AMD CPUs
+    inputs.nixos-hardware.nixosModules.common-cpu-intel # Intel CPUs
 
     # Additional Hardware Modules - Uncomment based on your system type:
-    # inputs.hydenix.inputs.nixos-hardware.nixosModules.common-hidpi # High-DPI displays
-    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-pc-laptop # Laptops
-    inputs.hydenix.inputs.nixos-hardware.nixosModules.common-pc-ssd # SSD storage
+    # inputs.nixos-hardware.nixosModules.common-hidpi # High-DPI displays
+    inputs.nixos-hardware.nixosModules.common-pc-laptop # Laptops
+    inputs.nixos-hardware.nixosModules.common-pc-ssd # SSD storage
   ];
 
   # If enabling NVIDIA, you will be prompted to configure hardware.nvidia
@@ -54,7 +66,7 @@ in {
   #   };
   # };
 
-  # Home Manager Configuration - manages user-specific configurations (dotfiles, themes, etc.)
+  # Home Manager Configuration
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -62,9 +74,8 @@ in {
     # This must match the username you define in users.users below
     users."roverp_vm" = {...}: {
       imports = [
-        inputs.hydenix.lib.homeModules
-        inputs.nix-index-database.homeModules.nix-index # Command-not-found and comma tool support
-        ./../../modules/hm # Your custom home-manager modules (configure hydenix.hm here!)
+        inputs.nix-index-database.homeModules.nix-index
+        ./../../modules/hm
         ./hm-overrides.nix
       ];
     };
@@ -79,18 +90,12 @@ in {
       "networkmanager"
       "video"
     ]; # User groups (determines permissions)
-    shell = pkgs.zsh; # Default shell (options: pkgs.bash, pkgs.zsh, pkgs.fish)
+    shell = pkgs.zsh;
   };
 
-  # Hydenix Configuration - Main configuration for the Hydenix desktop environment
-  hydenix = {
-    enable = true; # Enable Hydenix modules
-    # Basic System Settings (REQUIRED):
-    hostname = "hydenix"; # REQUIRED: Set your computer's network name (change to something unique)
-    timezone = "America/Vancouver"; # REQUIRED: Set timezone (examples: "America/New_York", "Europe/London", "Asia/Tokyo")
-    locale = "en_CA.UTF-8"; # REQUIRED: Set locale/language (examples: "en_US.UTF-8", "en_GB.UTF-8", "de_DE.UTF-8")
-    # For more configuration options, see: ./docs/options.md
-  };
+  networking.hostName = "wisp-vm";
+  time.timeZone = "Europe/Warsaw";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # System Version - Don't change unless you know what you're doing (helps with system upgrades and compatibility)
   system.stateVersion = "25.05";
