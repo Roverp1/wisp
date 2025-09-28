@@ -22,11 +22,15 @@
     nerd-fonts.jetbrains-mono
   ];
 
-  programs.hyprland = {
-    package = pkgs.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-    enable = true;
-    withUWSM = false;
+  programs = {
+    hyprland = {
+      package = pkgs.hyprland;
+      portalPackage = pkgs.xdg-desktop-portal-hyprland;
+      enable = true;
+      withUWSM = false;
+    };
+
+    zsh.enable = true;
   };
 
   nix = {
