@@ -78,7 +78,7 @@
       "networkmanager"
       "video"
     ]; # User groups (determines permissions)
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
   };
 
   networking.hostName = "wisp-vm";
