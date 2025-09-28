@@ -13,8 +13,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    disco = {
-      url = "https://github.com/nix-community/disko";
+    disko = {
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
