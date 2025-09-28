@@ -17,8 +17,12 @@
   };
 
   imports = [
+    inputs.disko.nixosModules.disko
+    ./disko-config.nix
+
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix
+
     ./../../modules/system
     ./hardware-configuration.nix
 
