@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  selectTheme = "ayu-dark";
+  selectTheme = "oxocarbon-dark";
 
   themes = import ./themes/default.nix {inherit pkgs;};
   theme = themes.${selectTheme};
@@ -11,18 +11,14 @@ in {
   stylix = {
     enable = true;
 
-    # targets = {
-    #   gnome.enable = false;
-    # };
-
-    # cursor = {
-    #   package = pkgs.bibata-cursors;
-    #   name = "Bibata-Modern-Classic";
-    #   size = 24;
-    # };
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+    };
 
     base16Scheme = theme.base16Scheme;
-    # image = theme.wallpaper;
+    image = theme.wallpaper;
     # polarity = theme.polarity;
 
     fonts = {
