@@ -16,8 +16,6 @@ in {
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      dbus # inter-process communication daemon
-      upower # power management/battery status daemon
     ];
 
     fonts.packages = with pkgs; [
@@ -27,17 +25,6 @@ in {
 
       nerd-fonts.jetbrains-mono
     ];
-
-    hardware.bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-          Experimental = true;
-        };
-      };
-    };
 
     programs = {
       gnupg.agent = {
