@@ -40,12 +40,9 @@
 
   stylix = {
     targets = {
-      #     qt.enable = false;
-      #     gtk.enable = false;
-      #     vscode.enable = false;
-      #     xresources.enable = false;
-      #     sxiv.enable = false;
-      #
+      waybar.addCss = false;
+      waybar.enable = false;
+
       zen-browser.profileNames = ["default"];
     };
   };
