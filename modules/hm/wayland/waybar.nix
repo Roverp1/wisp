@@ -15,9 +15,13 @@
       modules-center = [];
       modules-right = ["network" "battery" "tray" "clock"];
 
-      "hyprland/window" = {
-        # separate-outputs = true;
+      "hyprland/workspaces" = {
+        format = "{id}";
         persistent-workspaces = {"*" = 10;};
+      };
+
+      "hyprland/window" = {
+        separate-outputs = true;
       };
 
       clock = {

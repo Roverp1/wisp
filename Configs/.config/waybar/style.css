@@ -22,9 +22,13 @@ window#waybar {
   padding: 0 10px;
   min-width: 1px;
   color: #888;
+
+  border: none;
+  box-shadow: none;
+  background: transparent;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   color: #fff;
   background-color: #285577;
 }
@@ -33,10 +37,10 @@ window#waybar {
   background-color: #285577;
 }
 
-/* window#waybar.empty #window { */
-/*   color: transparent; */
-/*   background-color: transparent; */
-/* } */
+window#waybar.empty #window {
+  color: transparent;
+  background-color: transparent;
+}
 
 #network,
 #battery,
