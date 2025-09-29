@@ -39,7 +39,7 @@ in {
         };
       };
 
-      style = ./../../../Configs/.config/waybar/style.css;
+      style = lib.mkDefault ./../../../Configs/.config/waybar/style.css;
     };
   };
 }
