@@ -5,9 +5,9 @@
   ...
 }: {
   imports = [
+    ./wayland
     ./devPrograms
 
-    ./hyprland.nix
     ./xdg.nix
     ./neovim.nix
     ./zen-browser.nix
