@@ -146,31 +146,18 @@ in {
 
         '';
 
-        leftStatus = ''
-          set -g @LS "#{@user_host}#{@sessions}#{@upload_speed_module}#{@prefix_highlight_module}"
+        leftStatus = "set -g status-left \"${userHostModule}${sessionModule}${uploadSpeedModule}${prefixHighlightModule}\"";
 
-          set -g @user_host "#[fg=#{@base00},bg=#{@base0D},bold] #{@user_icon} #(whoami)@#h #[fg=#{@base0D},bg=#{@base02},nobold]#{@right_arrow_icon}"
+        rightStatus = "set -g status-right \"${downloadSpeedModule}${timeModule}${dateModule}\"";
 
-          set -g @sessions "#[fg=#{@base0D},bg=#{@base02}] #{@session_icon} #S #[fg=#{@base02},bg=#{@base00}]#{@right_arrow_icon}"
+        userHostModule = "#[fg=#{@base00},bg=#{@base0D},bold] #{@user_icon} #(whoami)@#h #[fg=#{@base0D},bg=#{@base02},nobold]#{@right_arrow_icon}";
+        sessionModule = "#[fg=#{@base0D},bg=#{@base02}] #{@session_icon} #S #[fg=#{@base02},bg=#{@base00}]#{@right_arrow_icon}";
+        uploadSpeedModule = "#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
+        prefixHighlightModule = "#{prefix_highlight}";
 
-          set -g @upload_speed_module "#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}"
-
-          set -g @prefix_highlight_module "#{prefix_highlight}"
-
-          set -g status-left "#{@LS}"
-        '';
-
-        rightStatus = ''
-          set -g @RS "#{@download_speed_module}#{@time_module}#{@date_module}"
-
-          set -g @download_speed_module "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon} #[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed}"
-
-          set -g @time_module "#[fg=#{@base02}]#{@left_arrow_icon} #[fg=#{@base0D},bg=#{@base02}] #{@time_icon} #{@time_format}"
-
-          set -g @date_module "#[fg=#{@base0D},bg=#{@base02}]#{@left_arrow_icon} #[fg=#{@base00},bg=#{@base0D}] #{@date_icon} #{@date_format}"
-
-          set -g status-right "#{@RS}"
-        '';
+        downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon} #[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed}";
+        timeModule = "#[fg=#{@base02},bg=#{@base00}]#{@left_arrow_icon} #[fg=#{@base0D},bg=#{@base02}] #{@time_icon} #{@time_format}";
+        dateModule = "#[fg=#{@base0D},bg=#{@base02}]#{@left_arrow_icon} #[fg=#{@base00},bg=#{@base0D}] #{@date_icon} #{@date_format}";
       in ''
         ${base16Colors}
         ${baseConfig}
