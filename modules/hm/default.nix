@@ -11,7 +11,6 @@
     ./xdg.nix
     ./neovim.nix
     ./zen-browser.nix
-    # ./kitty.nix
   ];
 
   # home-manager options go here
@@ -44,6 +43,7 @@
       waybar.enable = false;
 
       tmux.enable = false;
+      kitty.enable = false;
 
       zen-browser.profileNames = ["default"];
     };
