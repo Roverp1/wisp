@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  selectTheme = "oxocarbon-dark";
+  selectTheme = "gruvbox-dark-hard";
 
   themes = import ./themes/default.nix {inherit pkgs;};
   theme = themes.${selectTheme};
