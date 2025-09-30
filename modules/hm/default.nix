@@ -43,6 +43,8 @@
       waybar.addCss = false;
       waybar.enable = false;
 
+      tmux.enable = false;
+
       zen-browser.profileNames = ["default"];
     };
   };
