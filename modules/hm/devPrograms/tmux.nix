@@ -51,6 +51,9 @@ in {
       ];
 
       extraConfig = let
+        timeFormat = "%I:%M %p";
+        dateFormat = "%F";
+
         baseConfig = ''
           # window and pane indexing
           set -g base-index 1
@@ -122,9 +125,6 @@ in {
           set -g @time_icon           ' '
           set -g @date_icon           ' '
 
-          set -g @time_format "%T"
-          set -g @date_format "%F"
-
           set -g status-interval 1
           set -g status-style fg="#{@base05}",bg="#{@base00}",none
           set -g status on
@@ -152,12 +152,12 @@ in {
 
         userHostModule = "#[fg=#{@base00},bg=#{@base0D},bold] #{@user_icon} #(whoami)@#h #[fg=#{@base0D},bg=#{@base02},nobold]#{@right_arrow_icon}";
         sessionModule = "#[fg=#{@base0D},bg=#{@base02}] #{@session_icon} #S #[fg=#{@base02},bg=#{@base00}]#{@right_arrow_icon}";
-        uploadSpeedModule = "#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
+        uploadSpeedModule = "#[fg=#{@base02},bg=#{@base01}]#{@right_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
         prefixHighlightModule = "#{prefix_highlight}";
 
-        downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon} #[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed}";
-        timeModule = "#[fg=#{@base02},bg=#{@base00}]#{@left_arrow_icon} #[fg=#{@base0D},bg=#{@base02}] #{@time_icon} #{@time_format}";
-        dateModule = "#[fg=#{@base0D},bg=#{@base02}]#{@left_arrow_icon} #[fg=#{@base00},bg=#{@base0D}] #{@date_icon} #{@date_format}";
+        downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed}[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}";
+        timeModule = "#[fg=#{@base02},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base02}] #{@time_icon} ${timeFormat}";
+        dateModule = "#[fg=#{@base0D},bg=#{@base02}]#{@left_arrow_icon}#[fg=#{@base00},bg=#{@base0D}] #{@date_icon} ${dateFormat}";
       in ''
         ${base16Colors}
         ${baseConfig}
