@@ -151,8 +151,8 @@ in {
         rightStatus = "set -g status-right \"${downloadSpeedModule}${timeModule}${dateModule}\"";
 
         userHostModule = "#[fg=#{@base00},bg=#{@base0D},bold] #{@user_icon} #(whoami)@#h #[fg=#{@base0D},bg=#{@base02},nobold]#{@right_arrow_icon}";
-        sessionModule = "#[fg=#{@base0D},bg=#{@base02}] #{@session_icon} #S #[fg=#{@base02},bg=#{@base00}]#{@right_arrow_icon}";
-        uploadSpeedModule = "#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
+        sessionModule = "#[fg=#{@base0D},bg=#{@base02}] #{@session_icon} #S ";
+        uploadSpeedModule = "#[fg=#{@base02},bg=#{@base01}]#{@right_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
         prefixHighlightModule = "#{prefix_highlight}";
 
         downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed} ";
