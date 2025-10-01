@@ -41,6 +41,9 @@ in {
         {
           plugin = prefix-highlight;
           extraConfig = ''
+            set -g @prefix_highlight_prefix_prompt "PREFIX"
+            set -g @prefix_highlight_copy_prompt "COPY"
+
             set -g @prefix_highlight_show_copy_mode "on"
             set -g @prefix_highlight_copy_mode_attr "fg=#{@base0D},bg=#{@base00},bold"
             set -g @prefix_highlight_output_prefix "#[fg=#{@base0D},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base00},bg=#{@base0D}]"
@@ -81,6 +84,25 @@ in {
           bind -r -T resize j resize-pane -D 2
           bind -r -T resize k resize-pane -U 2
           bind -T resize Escape switch-client -T prefix
+
+          set -g pane-border-style "fg=#{@base03},bg=default"
+          set -g pane-active-border "fg=#{@base0D},bg=default"
+
+          set -g display-panes-colour "#{@base03}"
+          set -g display-panes-active-colour "#{@base0D}"
+
+          # Clock mode
+          tmux_set clock-mode-colour "#@{base0D}"
+          tmux_set clock-mode-style 12
+
+          # Message
+          tmux_set message-style "fg=#{@base0D},bg=#{@base00}"
+
+          # Command message
+          tmux_set message-command-style "fg=#{@base0D},bg=#{@base00}"
+
+          # Copy mode highlight
+          tmux_set mode-style "bg=#{@base0D},fg=#{@base05}"
         '';
 
         base16Colors = ''
@@ -101,12 +123,6 @@ in {
           set -g @base0E "${config.lib.stylix.colors.withHashtag.base0E}"
         '';
 
-        # TC='#ffb86c'  # Theme color (accent)
-        # G0="#262626"  # Darkest background
-        # G1="#303030"  # Darker background
-        # G2="#3a3a3a"  # Medium background
-        # G3="#444444"  # Lighter background
-        # G4="#626262"  # Foreground text
         # TC (accent) = base0D (blue)
         # G0 (darkest bg) = base00
         # G1 = base01
