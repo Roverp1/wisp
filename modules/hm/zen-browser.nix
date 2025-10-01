@@ -1,27 +1,46 @@
-{inputs, ...}: {
+{
+  config,
+  lib,
+  inputs,
+  ...
+}: let
+  cfg = config.wisp.programs.zenBrowser;
+in {
   imports = [
     inputs.zen-browser.homeModules.twilight
   ];
 
-  programs.zen-browser = {
-    enable = true;
+  options.wisp.programs.zenBrowser = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Enable zen-browser module";
+    };
+  };
 
-    policies = {
-      DisableAppUpdate = true;
+  config = lib.mkIf cfg.enable {
+    programs.zen-browser = {
+      enable = true;
 
-      DisableTelemetry = true;
-      EnableTrackingProtection = {
-        Value = true;
-        Cryptomining = true;
-        Fingerprinting = true;
-      };
+      policies = {
+        DisableAppUpdate = true;
 
-      ExtensionSettings = {
-        "uBlock0@raymondhill.net" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-          installation_mode = "force_installed";
+        DisableTelemetry = true;
+        EnableTrackingProtection = {
+          Value = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+        };
+
+        ExtensionSettings = {
+          "uBlock0@raymondhill.net" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+            installation_mode = "force_installed";
+          };
         };
       };
     };
+
+    stylix.zen-browser.profileNames = ["default"];
   };
 }

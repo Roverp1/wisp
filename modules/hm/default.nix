@@ -44,8 +44,6 @@
 
       tmux.enable = false;
       kitty.enable = false;
-
-      zen-browser.profileNames = ["default"];
     };
   };
 
