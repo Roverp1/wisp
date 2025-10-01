@@ -92,17 +92,17 @@ in {
           set -g display-panes-active-colour "#{@base0D}"
 
           # Clock mode
-          tmux_set clock-mode-colour "#@{base0D}"
-          tmux_set clock-mode-style 12
+          set -g clock-mode-colour "#@{base0D}"
+          set -g clock-mode-style 12
 
           # Message
-          tmux_set message-style "fg=#{@base0D},bg=#{@base00}"
+          set -g message-style "fg=#{@base0D},bg=#{@base00}"
 
           # Command message
-          tmux_set message-command-style "fg=#{@base0D},bg=#{@base00}"
+          set -g message-command-style "fg=#{@base0D},bg=#{@base00}"
 
           # Copy mode highlight
-          tmux_set mode-style "bg=#{@base0D},fg=#{@base05}"
+          set -g mode-style "bg=#{@base0D},fg=#{@base05}"
         '';
 
         base16Colors = ''
