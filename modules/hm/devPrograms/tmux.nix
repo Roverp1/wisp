@@ -111,24 +111,24 @@ in {
             bind -r -T resize k resize-pane -U 2
             bind -T resize Escape switch-client -T prefix
 
-            set -g pane-border-style "fg=#{@base03},bg=default"
-            set -g pane-active-border-style "fg=#{@base0D},bg=default"
+            set -g pane-border-style "fg=${base03},bg=default"
+            set -g pane-active-border-style "fg=${base0D},bg=default"
 
-            set -g display-panes-colour "#{@base03}"
-            set -g display-panes-active-colour "#{@base0D}"
+            set -g display-panes-colour "${base03}"
+            set -g display-panes-active-colour "${base0D}"
 
             # Clock mode
-            set -g clock-mode-colour "#{@base0D}"
+            set -g clock-mode-colour "${base0D}"
             set -g clock-mode-style 12
 
             # Message
-            set -g message-style "fg=#{@base0D},bg=#{@base00}"
+            set -g message-style "fg=${base0D},bg=${base00}"
 
             # Command message
-            set -g message-command-style "fg=#{@base0D},bg=#{@base00}"
+            set -g message-command-style "fg=${base0D},bg=${base00}"
 
             # Copy mode highlight
-            set -g mode-style "bg=#{@base0D},fg=#{@base05}"
+            set -g mode-style "bg=${base0D},fg=${base05}"
           '';
 
           base16Colors = ''
@@ -194,7 +194,7 @@ in {
           userHostModule = "#[fg=#{@base00},bg=#{@base0D},bold] #{@user_icon} #(whoami)@#h #[fg=#{@base0D},bg=#{@base02},nobold]#{@right_arrow_icon}";
           sessionModule = "#[fg=#{@base0D},bg=#{@base02}] #{@session_icon} #S ";
           uploadSpeedModule = "#[fg=#{@base02},bg=#{@base01}]#{@right_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
-          prefixHighlightModule = "#{prefix_highlight}";
+          prefixHighlightModule = " t #{prefix_highlight}";
 
           downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed} ";
           timeModule = "#[fg=#{@base02}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base02}] #{@time_icon} ${timeFormat} #[fg=#{@base0D},bg=#{@base02}]#{@left_arrow_icon}";
