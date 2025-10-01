@@ -116,14 +116,14 @@ in {
 
         statusBar = ''
 
-          set -g @user_icon           ' '
-          set -g @session_icon        ' '
-          set -g @upload_speed_icon   '󰕒'
-          set -g @left_arrow_icon     ''
-          set -g @right_arrow_icon    ''
+          set -g @user_icon           ""
+          set -g @session_icon        ""
+          set -g @upload_speed_icon   "󰕒"
+          set -g @left_arrow_icon     ""
+          set -g @right_arrow_icon    ""
           set -g @download_speed_icon '󰇚'
-          set -g @time_icon           ' '
-          set -g @date_icon           ' '
+          set -g @time_icon           ""
+          set -g @date_icon           ""
 
           set -g status-interval 1
           set -g status-style fg="#{@base05}",bg="#{@base00}",none
@@ -150,14 +150,14 @@ in {
 
         rightStatus = "set -g status-right \"${downloadSpeedModule}${timeModule}${dateModule}\"";
 
-        userHostModule = "#[fg=#{@base00},bg=#{@base0D},bold] #{@user_icon} #(whoami)@#h #[fg=#{@base0D},bg=#{@base02},nobold]#{@right_arrow_icon}";
-        sessionModule = "#[fg=#{@base0D},bg=#{@base02}] #{@session_icon} #S #[fg=#{@base02},bg=#{@base00}]#{@right_arrow_icon}";
-        uploadSpeedModule = "#[fg=#{@base02},bg=#{@base01}]#{@right_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
+        userHostModule = "#[fg=#{@base00},bg=#{@base0D},bold]#{@user_icon} #(whoami)@#h #[fg=#{@base0D},bg=#{@base02},nobold]#{@right_arrow_icon}";
+        sessionModule = "#[fg=#{@base0D},bg=#{@base02}]#{@session_icon} #S #[fg=#{@base02},bg=#{@base00}]#{@right_arrow_icon}";
+        uploadSpeedModule = "#[fg=#{@base0D},bg=#{@base01}]#{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
         prefixHighlightModule = "#{prefix_highlight}";
 
-        downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed}[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}";
-        timeModule = "#[fg=#{@base02},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base02}] #{@time_icon} ${timeFormat}";
-        dateModule = "#[fg=#{@base0D},bg=#{@base02}]#{@left_arrow_icon}#[fg=#{@base00},bg=#{@base0D}] #{@date_icon} ${dateFormat}";
+        downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base01}]#{@download_speed_icon} #{download_speed}[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}";
+        timeModule = "#[fg=#{@base02},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base02}]#{@time_icon} ${timeFormat} ";
+        dateModule = "#[fg=#{@base0D},bg=#{@base02}]#{@left_arrow_icon}#[fg=#{@base00},bg=#{@base0D}]#{@date_icon} ${dateFormat}";
       in ''
         ${base16Colors}
         ${baseConfig}
