@@ -38,15 +38,23 @@
   };
 
   outputs = {...} @ inputs: {
-    nixosConfigurations.wisp = inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+    nixosConfigurations = {
+      wisp = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
 
-      specialArgs = {
-        inherit inputs;
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/vm/configuration.nix
+        ];
       };
-      modules = [
-        ./hosts/vm/configuration.nix
-      ];
+
+      aceso = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [./hosts/aceso/configuration.nix];
+      };
     };
   };
 }
