@@ -64,18 +64,18 @@ in {
               # set -g @sessionx-ls-command       "exa --oneline --icons --sort=type"
             '';
           }
-          {
-            plugin = prefix-highlight;
-            extraConfig = ''
-              set -g @prefix_highlight_prefix_prompt "PREFIX"
-              set -g @prefix_highlight_copy_prompt "COPY"
-
-              set -g @prefix_highlight_show_copy_mode "on"
-              set -g @prefix_highlight_copy_mode_attr "fg=${base0D},bg=${base00},bold"
-              set -g @prefix_highlight_output_prefix "#[fg=${base0D},bg=${base00}]${leftArrowIcon}#[fg=${base00},bg=${base0D}]"
-              set -g @prefix_highlight_output_suffix "#[fg=${base0D},bg=${base00}]${rightArrowIcon}"
-            '';
-          }
+          # {
+          #   plugin = prefix-highlight;
+          #   extraConfig = ''
+          #     set -g @prefix_highlight_prefix_prompt "PREFIX"
+          #     set -g @prefix_highlight_copy_prompt "COPY"
+          #
+          #     set -g @prefix_highlight_show_copy_mode "on"
+          #     set -g @prefix_highlight_copy_mode_attr "fg=${base0D},bg=${base00},bold"
+          #     set -g @prefix_highlight_output_prefix "#[fg=${base0D},bg=${base00}]${leftArrowIcon}#[fg=${base00},bg=${base0D}]"
+          #     set -g @prefix_highlight_output_suffix "#[fg=${base0D},bg=${base00}]${rightArrowIcon}"
+          #   '';
+          # }
           net-speed
         ];
 
@@ -187,14 +187,14 @@ in {
 
           '';
 
-          leftStatus = "set -g status-left \"${userHostModule}${sessionModule}${uploadSpeedModule}${prefixHighlightModule}\"";
+          leftStatus = "set -g status-left \"${userHostModule}${sessionModule}${uploadSpeedModule}\"";
 
           rightStatus = "set -g status-right \"${downloadSpeedModule}${timeModule}${dateModule}\"";
 
           userHostModule = "#[fg=#{@base00},bg=#{@base0D},bold] #{@user_icon} #(whoami)@#h #[fg=#{@base0D},bg=#{@base02},nobold]#{@right_arrow_icon}";
           sessionModule = "#[fg=#{@base0D},bg=#{@base02}] #{@session_icon} #S ";
           uploadSpeedModule = "#[fg=#{@base02},bg=#{@base01}]#{@right_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
-          prefixHighlightModule = " t #{prefix_highlight}";
+          prefixHighlightModule = "#{prefix_highlight}";
 
           downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed} ";
           timeModule = "#[fg=#{@base02}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base02}] #{@time_icon} ${timeFormat} #[fg=#{@base0D},bg=#{@base02}]#{@left_arrow_icon}";
