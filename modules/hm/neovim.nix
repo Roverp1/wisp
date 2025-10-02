@@ -43,52 +43,57 @@ in {
         ]
         ++ lib.optional config.wisp.programs.yazi.enable pkgs.userPkgs.yazi;
 
-      plugins = with pkgs.vimPlugins; [
-        {
-          plugin = telescope-nvim;
-          config = toLua "require(\"telescope\").setup()";
-        }
+      plugins = with pkgs.vimPlugins;
+        [
+          {
+            plugin = telescope-nvim;
+            config = toLua "require(\"telescope\").setup()";
+          }
 
-        {
-          plugin = nvim-lspconfig;
-          config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/lspconfig.lua;
-        }
+          {
+            plugin = nvim-lspconfig;
+            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/lspconfig.lua;
+          }
 
-        {
-          plugin = userPlugins.blink-cmp;
-          config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/blink.lua;
-        }
+          {
+            plugin = userPlugins.blink-cmp;
+            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/blink.lua;
+          }
 
-        {
-          plugin = luasnip;
-          config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/luasnip.lua;
-        }
+          {
+            plugin = luasnip;
+            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/luasnip.lua;
+          }
 
-        {
-          plugin = conform-nvim;
-          config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/conform.lua;
-        }
+          {
+            plugin = conform-nvim;
+            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/conform.lua;
+          }
 
-        {
+          {
+            plugin = auto-session;
+            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/auto-session.lua;
+          }
+
+          vim-tmux-navigator
+
+          telescope-fzf-native-nvim
+
+          nvim-web-devicons
+          plenary-nvim
+
+          {
+            plugin = nvim-treesitter.withPlugins (p: [
+              p.tree-sitter-nix
+              p.tree-sitter-lua
+            ]);
+            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/treesitter.lua;
+          }
+        ]
+        ++ lib.optional config.wisp.programs.yazi.enable {
           plugin = yazi-nvim;
           config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/yazi.lua;
-        }
-
-        vim-tmux-navigator
-
-        telescope-fzf-native-nvim
-
-        nvim-web-devicons
-        plenary-nvim
-
-        {
-          plugin = nvim-treesitter.withPlugins (p: [
-            p.tree-sitter-nix
-            p.tree-sitter-lua
-          ]);
-          config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/treesitter.lua;
-        }
-      ];
+        };
 
       extraLuaConfig = ''
         ${builtins.readFile ./../../Configs/.config/nvim/init.lua}
