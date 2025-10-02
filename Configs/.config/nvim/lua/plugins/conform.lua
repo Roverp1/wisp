@@ -15,9 +15,4 @@ require("conform").setup({
 		json = prittier,
 		yaml = prittier,
 	},
-
-	format_on_save = {
-		timout_ms = 2000,
-		lsp_format = "fallback",
-	},
 })
