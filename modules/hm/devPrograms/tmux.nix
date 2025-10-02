@@ -24,6 +24,8 @@ in {
     timeIcon = "";
     dateIcon = "";
 
+    prefixPrompt = "PREF";
+
     base00 = config.lib.stylix.colors.withHashtag.base00;
     base01 = config.lib.stylix.colors.withHashtag.base01;
     base02 = config.lib.stylix.colors.withHashtag.base02;
@@ -187,14 +189,16 @@ in {
 
           '';
 
-          leftStatus = "set -g status-left \"${userHostModule}${sessionModule}${uploadSpeedModule}\"";
+          leftStatus = "set -g status-left \"${userHostModule}${sessionModule}${uploadSpeedModule}${prefixHighlightModule}\"";
 
           rightStatus = "set -g status-right \"${downloadSpeedModule}${timeModule}${dateModule}\"";
 
           userHostModule = "#[fg=#{@base00},bg=#{@base0D},bold] #{@user_icon} #(whoami)@#h #[fg=#{@base0D},bg=#{@base02},nobold]#{@right_arrow_icon}";
           sessionModule = "#[fg=#{@base0D},bg=#{@base02}] #{@session_icon} #S ";
           uploadSpeedModule = "#[fg=#{@base02},bg=#{@base01}]#{@right_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
-          prefixHighlightModule = "#{prefix_highlight}";
+
+          prefixMode = "#[fg=${base0D},bg=${base00}]${leftArrowIcon}#[fg=${base00},bg=${base0D}] ${prefixPrompt} #[fg=${base0D},bg=${base00}]${rightArrowIcon}";
+          prefixHighlightModule = "#{?client_prefix,${prefixMode},}#[default]";
 
           downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed} ";
           timeModule = "#[fg=#{@base02}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base02}] #{@time_icon} ${timeFormat} #[fg=#{@base0D},bg=#{@base02}]#{@left_arrow_icon}";
