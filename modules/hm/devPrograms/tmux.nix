@@ -198,6 +198,7 @@ in {
           uploadSpeedModule = "#[fg=#{@base02},bg=#{@base01}]#{@right_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
 
           prefixMode = " ^ ";
+          # TODO: highlight userHostModule on prefix press instead
           prefixHighlightModule = "#{?client_prefix,${prefixMode}, }";
 
           downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed} ";
