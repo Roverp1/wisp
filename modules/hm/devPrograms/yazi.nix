@@ -4,10 +4,10 @@
   pkgs,
   ...
 }: let
-  cfg = config.roverp.programs.yazi;
+  cfg = config.wisp.programs.yazi;
 in {
-  options = {
-    roverp.programs.yazi.enable = lib.mkOption {
+  options.wisp.programs.yazi = {
+    enable = lib.mkOption {
       default = true;
       description = "Enable yazi module";
     };
