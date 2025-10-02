@@ -1,6 +1,8 @@
 local opt = vim.opt
 local g = vim.g
 
+opt.scrolloff = 5
+
 opt.number = true
 opt.numberwidth = 2
 opt.relativenumber = true
