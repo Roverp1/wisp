@@ -10,7 +10,7 @@ in {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      desription = "Enable neovim module";
+      description = "Enable neovim module";
     };
   };
 
