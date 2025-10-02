@@ -71,6 +71,11 @@ in {
           }
 
           {
+            plugin = which-key-nvim;
+            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/which-key.lua;
+          }
+
+          {
             plugin = auto-session;
             config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/auto-session.lua;
           }
