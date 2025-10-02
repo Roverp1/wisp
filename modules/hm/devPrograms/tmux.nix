@@ -197,10 +197,10 @@ in {
           sessionModule = "#[fg=#{@base0D},bg=#{@base02}] #{@session_icon} #S ";
           uploadSpeedModule = "#[fg=#{@base02},bg=#{@base01}]#{@right_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@upload_speed_icon} #{upload_speed} #[fg=#{@base01},bg=#{@base00}]#{@right_arrow_icon}";
 
-          prefixMode = "#[fg=#{@base01},bg=#{@base00}]${leftArrowIcon}#[fg=${base00},bg=${base0D}] ${prefixPrompt} ";
-          prefixHighlightModule = "#{?client_prefix,${prefixMode}, }";
+          prefixMode = " ^ ";
+          prefixHighlightModule = "#{?client_prefix, ,${prefixMode}}";
 
-          downloadSpeedModule = "#[fg=${base0D},bg=${base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed} ";
+          downloadSpeedModule = "#[fg=#{@base01},bg=#{@base00}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base01}] #{@download_speed_icon} #{download_speed} ";
           timeModule = "#[fg=#{@base02}]#{@left_arrow_icon}#[fg=#{@base0D},bg=#{@base02}] #{@time_icon} ${timeFormat} #[fg=#{@base0D},bg=#{@base02}]#{@left_arrow_icon}";
           dateModule = "#[fg=#{@base00},bg=#{@base0D}] #{@date_icon} ${dateFormat} ";
         in ''
