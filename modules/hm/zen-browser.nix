@@ -41,6 +41,6 @@ in {
       };
     };
 
-    stylix.zen-browser.profileNames = ["default"];
+    stylix.targets.zen-browser.profileNames = ["default"];
   };
 }
