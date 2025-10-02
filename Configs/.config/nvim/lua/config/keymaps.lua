@@ -17,7 +17,7 @@ map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
 map("n", "<leader>sa", "ggVG", { desc = "󰒆 Select All" })
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
-map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
+map("n", "<leader>nb", "<cmd>enew<CR>", { desc = "buffer new" })
 
 -- Comment ?
 -- map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
@@ -36,8 +36,13 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 -- Telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
 map("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find in current buffer" })
+map(
+	"n",
+	"<leader>b",
+	"<cmd>Telescope buffers sort_mru=true sort_lastused=true theme=ivy<cr>",
+	{ desc = "Find buffers" }
+)
 
 -- yazi.nvim
 map("n", "<C-n>", "<cmd>Yazi toggle<cr>", { desc = "Yazi toggle" })

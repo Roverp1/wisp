@@ -1,7 +1,10 @@
 local opt = vim.opt
 local g = vim.g
 
+-- misc
 opt.scrolloff = 5
+opt.cmdheight = 0
+opt.errorbells = true
 
 opt.number = true
 opt.numberwidth = 2
