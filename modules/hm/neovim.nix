@@ -20,6 +20,22 @@ in {
       toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 
       userPlugins = pkgs.userPkgs.vimPlugins;
+
+      base00 = config.lib.stylix.colors.withHashtag.base00;
+      base01 = config.lib.stylix.colors.withHashtag.base01;
+      base02 = config.lib.stylix.colors.withHashtag.base02;
+      base03 = config.lib.stylix.colors.withHashtag.base03;
+      base04 = config.lib.stylix.colors.withHashtag.base04;
+      base05 = config.lib.stylix.colors.withHashtag.base05;
+      base06 = config.lib.stylix.colors.withHashtag.base06;
+      base07 = config.lib.stylix.colors.withHashtag.base07;
+      base08 = config.lib.stylix.colors.withHashtag.base08;
+      base09 = config.lib.stylix.colors.withHashtag.base09;
+      base0A = config.lib.stylix.colors.withHashtag.base0A;
+      base0B = config.lib.stylix.colors.withHashtag.base0B;
+      base0C = config.lib.stylix.colors.withHashtag.base0C;
+      base0D = config.lib.stylix.colors.withHashtag.base0D;
+      base0E = config.lib.stylix.colors.withHashtag.base0E;
     in {
       enable = true;
       defaultEditor = true;
@@ -46,6 +62,29 @@ in {
       plugins = with pkgs.vimPlugins;
         [
           {
+            plugin = lualine-nvim;
+            config = toLua ''
+              base00 = ${base00};
+              base01 = ${base01};
+              base02 = ${base02};
+              base03 = ${base03};
+              base04 = ${base04};
+              base05 = ${base05};
+              base06 = ${base06};
+              base07 = ${base07};
+              base08 = ${base08};
+              base09 = ${base09};
+              base0A = ${base0A};
+              base0B = ${base0B};
+              base0C = ${base0C};
+              base0D = ${base0D};
+              base0E = ${base0E};
+
+              ${builtins.readFile ./../../Configs/.config/nvim/lua/plugins/lualine.lua}
+            '';
+          }
+
+          {
             plugin = telescope-nvim;
             config = toLua "require(\"telescope\").setup()";
           }
@@ -68,11 +107,6 @@ in {
           {
             plugin = conform-nvim;
             config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/conform.lua;
-          }
-
-          {
-            plugin = lualine-nvim;
-            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/lualine.lua;
           }
 
           {

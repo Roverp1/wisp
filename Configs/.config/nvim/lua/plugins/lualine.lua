@@ -1,23 +1,24 @@
-local colors = {
-	red = "#ca1243",
-	grey = "#a0a1a7",
-	black = "#383a42",
-	white = "#f3f3f3",
-	light_green = "#83a598",
-	orange = "#fe8019",
-	green = "#8ec07c",
-}
+-- getting defined in neovim.nix
+-- local colors = {
+-- 	base00 = "#383a42",
+-- 	base01 = "#a0a1a7",
+-- 	base05 = "#f3f3f3",
+--
+-- 	base08 = "#ca1243",
+-- 	base0B = "#83a598",
+-- 	base0A = "#fe8019",
+-- }
 
 local theme = {
 	normal = {
-		a = { fg = colors.white, bg = colors.black },
-		b = { fg = colors.white, bg = colors.grey },
-		c = { fg = colors.black, bg = colors.white },
-		z = { fg = colors.white, bg = colors.black },
+		a = { fg = colors.base05, bg = colors.base00 },
+		b = { fg = colors.base05, bg = colors.base01 },
+		c = { fg = colors.base00, bg = colors.base05 },
+		z = { fg = colors.base05, bg = colors.base00 },
 	},
-	insert = { a = { fg = colors.black, bg = colors.light_green } },
-	visual = { a = { fg = colors.black, bg = colors.orange } },
-	replace = { a = { fg = colors.black, bg = colors.green } },
+	insert = { a = { fg = colors.base00, bg = colors.base0B } },
+	visual = { a = { fg = colors.base00, bg = colors.base0A } },
+	replace = { a = { fg = colors.base00, bg = colors.base0B } },
 }
 
 local empty = require("lualine.component"):extend()
@@ -33,9 +34,9 @@ end
 local function process_sections(sections)
 	for name, section in pairs(sections) do
 		local left = name:sub(9, 10) < "x"
-		for pos = 1, name ~= "lualine_z" and #section or #section - 1 do
-			table.insert(section, pos * 2, { empty, color = { fg = colors.white, bg = colors.white } })
-		end
+		-- for pos = 1, name ~= "lualine_z" and #section or #section - 1 do
+		-- 	table.insert(section, pos * 2, { empty, color = { fg = colors.base05, bg = colors.base05 } })
+		-- end
 		for id, comp in ipairs(section) do
 			if type(comp) ~= "table" then
 				comp = { comp }
@@ -56,7 +57,7 @@ local function search_result()
 		return ""
 	end
 	local searchcount = vim.fn.searchcount({ maxcount = 9999 })
-	return last_search .. "(" .. searchcount.current .. "/" .. searchcount.total .. ")"
+	return "[" .. searchcount.current .. "/" .. searchcount.total .. "]"
 end
 
 local function modified()
@@ -83,16 +84,16 @@ require("lualine").setup({
 				"diagnostics",
 				source = { "nvim" },
 				sections = { "error" },
-				diagnostics_color = { error = { bg = colors.red, fg = colors.white } },
+				diagnostics_color = { error = { bg = colors.base08, fg = colors.base05 } },
 			},
 			{
 				"diagnostics",
 				source = { "nvim" },
 				sections = { "warn" },
-				diagnostics_color = { warn = { bg = colors.orange, fg = colors.white } },
+				diagnostics_color = { warn = { bg = colors.base0A, fg = colors.base05 } },
 			},
 			{ "filename", file_status = false, path = 1 },
-			{ modified, color = { bg = colors.red } },
+			{ modified, color = { bg = colors.base08 } },
 			{
 				"%w",
 				cond = function()
