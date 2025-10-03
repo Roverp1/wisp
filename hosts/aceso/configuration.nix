@@ -1,10 +1,12 @@
 {
   inputs,
+  lib,
   pkgs,
   modulesPath,
   ...
 }: {
   imports = [
+    # build with `nix build .\#nixosConfigurations.aceso.config.system.build.isoImage`
     "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
     inputs.home-manager.nixosModules.home-manager
     inputs.stylix.nixosModules.stylix
@@ -27,11 +29,15 @@
   wisp.wayland.enable = false;
 
   # Enable SSH for remote access
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = true;
-      PermitRootLogin = "yes";
+  services = {
+    getty.autologinUser = lib.mkForce "aceso";
+
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = true;
+        PermitRootLogin = "yes";
+      };
     };
   };
 
@@ -42,9 +48,6 @@
     extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.zsh;
   };
-
-  # Set root password for emergency access
-  users.users.root.initialPassword = "root";
 
   # Home Manager for minimal shell setup
   home-manager = {
