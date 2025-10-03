@@ -13,7 +13,7 @@ local theme = {
 	normal = {
 		a = { fg = colors.base05, bg = colors.base00 },
 		b = { fg = colors.base05, bg = colors.base01 },
-		c = { fg = colors.base00, bg = colors.base05 },
+		c = {},
 		z = { fg = colors.base05, bg = colors.base00 },
 	},
 	insert = { a = { fg = colors.base00, bg = colors.base0B } },
@@ -80,30 +80,12 @@ require("lualine").setup({
 		lualine_b = {
 			"branch",
 			"diff",
-			{
-				"diagnostics",
-				source = { "nvim" },
-				sections = { "error" },
-				diagnostics_color = { error = { bg = colors.base08, fg = colors.base05 } },
-			},
-			{
-				"diagnostics",
-				source = { "nvim" },
-				sections = { "warn" },
-				diagnostics_color = { warn = { bg = colors.base0A, fg = colors.base05 } },
-			},
 			{ "filename", file_status = false, path = 1 },
-			{ modified, color = { bg = colors.base08 } },
+			{ modified, color = { bg = colors.base08, fg = colors.base00 } },
 			{
 				"%w",
 				cond = function()
 					return vim.wo.previewwindow
-				end,
-			},
-			{
-				"%r",
-				cond = function()
-					return vim.bo.readonly
 				end,
 			},
 			{
@@ -115,8 +97,23 @@ require("lualine").setup({
 		},
 		lualine_c = {},
 		lualine_x = {},
-		lualine_y = { search_result, "filetype" },
-		lualine_z = { "%l:%c", "%p%%/%L" },
+		lualine_y = {
+			search_result,
+			{
+				"diagnostics",
+				source = { "nvim" },
+				sections = { "error" },
+				diagnostics_color = { error = { bg = colors.base08, fg = colors.base00 } },
+			},
+			{
+				"diagnostics",
+				source = { "nvim" },
+				sections = { "warn" },
+				diagnostics_color = { warn = { bg = colors.base0A, fg = colors.base00 } },
+			},
+			"filetype",
+		},
+		lualine_z = { "%l:%c" },
 	}),
 	inactive_sections = {
 		lualine_c = { "%f %y %m" },
