@@ -11,11 +11,6 @@ setopt hist_save_no_dups
 setopt hist_find_no_dups
 
 # Key binds
-bindkey -v
+bindkey -e
 
 bindkey "^f" autosuggest-accept
-
-bindkey "^p" history-search-backward
-bindkey "^n" history-search-forward
-
-bindkey -M viins "^w" backward-kill-word
