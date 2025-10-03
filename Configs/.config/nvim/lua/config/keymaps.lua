@@ -35,6 +35,12 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- Telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
+map(
+	"n",
+	"<leader>fa",
+	"<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+	{ desc = "Find all files" }
+)
 map("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find in current buffer" })
 map(
@@ -48,13 +54,6 @@ map(
 map("n", "<C-n>", "<cmd>Yazi toggle<cr>", { desc = "Yazi toggle" })
 map("n", "<leader>yw", "<cmd>Yazi cwd<cr>", { desc = "Yazi open at working directory" })
 map("n", "<leader>yf", "<cmd>Yazi<cr>", { desc = "Yazi open at current file" })
-
-map(
-	"n",
-	"<leader>fa",
-	"<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-	{ desc = "Find all files" }
-)
 
 -- remaps for centring
 map("n", "<C-d>", "<C-d>zz", { desc = "Jump half a page down and center the screeen" })

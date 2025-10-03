@@ -71,6 +71,11 @@ in {
           }
 
           {
+            plugin = lualine-nvim;
+            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/lualine.lua;
+          }
+
+          {
             plugin = which-key-nvim;
             config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/which-key.lua;
           }
