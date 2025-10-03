@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.roverp.xdg;
+  cfg = config.wisp.xdg;
 in {
-  options.roverp.xdg = {
+  options.wisp.xdg = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
@@ -26,6 +26,7 @@ in {
           xdg-desktop-portal
         ];
         xdgOpenUsePortal = true;
+        # replace with `config.common.default = "hyprland;gtk";`?
         configPackages = with pkgs; [
           pkgs.xdg-desktop-portal-hyprland
           xdg-desktop-portal-gtk
