@@ -1,12 +1,8 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    ./wayland
     ./dev
+    ./wayland
+    ./gui
 
     ./xdg.nix
     ./neovim.nix
