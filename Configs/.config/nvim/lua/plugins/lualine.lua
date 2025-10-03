@@ -9,18 +9,12 @@
 -- 	base0A = "#fe8019",
 -- }
 
-local base_statusline_highlights =
-	{ "StatusLine", "StatusLineNC", "Tabline", "TabLineFill", "TabLineSel", "Winbar", "WinbarNC" }
-for _, hl_group in pairs(base_statusline_highlights) do
-	vim.api.nvim_set_hl(0, hl_group, { bg = "none" })
-end
-
 local theme = {
 	normal = {
 		a = { fg = colors.base05, bg = colors.base00 },
 		b = { fg = colors.base05, bg = colors.base01 },
-		c = { bg = "NONE" },
-		x = { bg = "NONE" },
+		c = { bg = colors.base00 },
+		x = { bg = colors.base00 },
 		z = { fg = colors.base05, bg = colors.base00 },
 	},
 	insert = { a = { fg = colors.base00, bg = colors.base0B } },
@@ -103,7 +97,7 @@ require("lualine").setup({
 			},
 		},
 		lualine_c = {},
-		lualine_x = {},
+		lualine_x = { "lsp_status" },
 		lualine_y = {
 			search_result,
 			{
@@ -118,7 +112,7 @@ require("lualine").setup({
 				sections = { "warn" },
 				diagnostics_color = { warn = { bg = colors.base0A, fg = colors.base01 } },
 			},
-			"lsp_status",
+			"filetype",
 		},
 		lualine_z = { "%l:%c" },
 	}),
