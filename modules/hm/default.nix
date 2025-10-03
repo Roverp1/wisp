@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./wayland
-    ./devPrograms
+    ./dev
 
     ./xdg.nix
     ./neovim.nix
