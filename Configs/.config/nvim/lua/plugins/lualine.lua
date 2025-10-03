@@ -13,7 +13,8 @@ local theme = {
 	normal = {
 		a = { fg = colors.base05, bg = colors.base00 },
 		b = { fg = colors.base05, bg = colors.base01 },
-		c = {},
+		c = { bg = "NONE" },
+		x = { bg = "NONE" },
 		z = { fg = colors.base05, bg = colors.base00 },
 	},
 	insert = { a = { fg = colors.base00, bg = colors.base0B } },
@@ -80,8 +81,8 @@ require("lualine").setup({
 		lualine_b = {
 			"branch",
 			"diff",
-			{ "filename", file_status = false, path = 1 },
-			{ modified, color = { bg = colors.base08, fg = colors.base00 } },
+			{ "filename", file_status = false, path = 1, color = { bg = colors.bsae02 } },
+			{ modified, color = { bg = colors.base08, fg = colors.base01 } },
 			{
 				"%w",
 				cond = function()
@@ -103,13 +104,13 @@ require("lualine").setup({
 				"diagnostics",
 				source = { "nvim" },
 				sections = { "error" },
-				diagnostics_color = { error = { bg = colors.base08, fg = colors.base00 } },
+				diagnostics_color = { error = { bg = colors.base08, fg = colors.base01 } },
 			},
 			{
 				"diagnostics",
 				source = { "nvim" },
 				sections = { "warn" },
-				diagnostics_color = { warn = { bg = colors.base0A, fg = colors.base00 } },
+				diagnostics_color = { warn = { bg = colors.base0A, fg = colors.base01 } },
 			},
 			"filetype",
 		},
