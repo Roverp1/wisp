@@ -112,7 +112,7 @@ in {
         inputbar = {
           width = mkLiteral "28.5em";
           expand = false;
-          background-color = mkLiteral "@background";
+          background-color = mkRgba "30" "base00";
           border-radius = mkLiteral "1em 0em 0em 1em";
           children = map mkLiteral ["prompt" "entry"];
           padding = mkLiteral "1.5em";
@@ -134,9 +134,11 @@ in {
         };
 
         listbox = {
+          spacing = mkLiteral "0em";
+          padding = mkLiteral "1em";
           background-color = mkLiteral "@background";
           border-radius = mkLiteral "0em 1em 1em 0em";
-          children = map mkLiteral ["dummy" "listview" "dummy"];
+          children = map mkLiteral ["listview"];
         };
 
         listview = {
@@ -148,8 +150,6 @@ in {
           background-color = mkLiteral "transparent";
           border-color = mkLiteral "@separatorcolor";
         };
-
-        dummy.background-color = mkLiteral "transparent";
 
         element = {
           spacing = mkLiteral "1em";
