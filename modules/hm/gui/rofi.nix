@@ -31,13 +31,13 @@ in {
 
         extraConfig = {
           modi = "drun";
-          display-drun = "󱄅";
+          display-drun = "󱄅 ";
           drun-display-format = "{name}";
           show-icons = true;
           icon-theme = "Tela-black";
         };
       };
 
-      stylix.targets.rofi.enable = false;
+      # stylix.targets.rofi.enable = false;
     };
 }

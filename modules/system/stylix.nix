@@ -11,6 +11,8 @@ in {
   stylix = {
     enable = true;
 
+    opacity.popups = 1.0;
+
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
@@ -22,6 +24,11 @@ in {
     # polarity = theme.polarity;
 
     fonts = {
+      sizes = {
+        applications = 14;
+        desktop = 13;
+      };
+
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono NF Regular";
