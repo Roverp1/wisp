@@ -14,21 +14,30 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [tela-icon-theme];
+  config = let
+    inherit (config.lib.formats.rasi) mkLiteral;
 
-    programs.rofi = {
-      enable = true;
+    colors = config.stylix.colors.withHashtag;
+    mkOpacity = color: opacity:
+      mkLiteral (color + opacity);
+  in
+    lib.mkIf cfg.enable {
+      home.packages = with pkgs; [tela-icon-theme];
 
-      location = "top";
+      programs.rofi = {
+        enable = true;
 
-      extraConfig = {
-        modi = "drun";
-        display-drun = "󱄅";
-        drun-display-format = "{name}";
-        show-icons = true;
-        icon-theme = "Tela-black";
+        location = "center";
+
+        extraConfig = {
+          modi = "drun";
+          display-drun = "󱄅";
+          drun-display-format = "{name}";
+          show-icons = true;
+          icon-theme = "Tela-black";
+        };
       };
+
+      stylix.targets.rofi.enable = false;
     };
-  };
 }
