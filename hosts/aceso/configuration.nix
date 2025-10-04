@@ -8,22 +8,8 @@
   imports = [
     # build with `nix build .\#nixosConfigurations.aceso.config.system.build.isoImage`
     "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
-    inputs.home-manager.nixosModules.home-manager
-    inputs.stylix.nixosModules.stylix
-    ./../../modules/system
+    ./../default.nix
   ];
-
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      (final: prev: {
-        userPkgs = import inputs.nixpkgs-unstable {
-          inherit (prev) system;
-          config.allowUnfree = true;
-        };
-      })
-    ];
-  };
 
   # Disable GUI components
   wisp.wayland.enable = false;
@@ -51,9 +37,6 @@
 
   # Home Manager for minimal shell setup
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {inherit inputs;};
     users.aceso = {
       imports = [
         inputs.nix-index-database.homeModules.nix-index
@@ -69,8 +52,6 @@
   };
 
   networking.hostName = "aceso";
-  networking.wireless.enable = false; # Use NetworkManager instead
-  networking.networkmanager.enable = true;
 
   # Include debugging tools
   environment.systemPackages = with pkgs; [
@@ -87,5 +68,4 @@
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
-  system.stateVersion = "25.05";
 }

@@ -3,27 +3,12 @@
   pkgs,
   ...
 }: {
-  nixpkgs = {
-    config.allowUnfree = true;
-
-    overlays = [
-      (final: prev: {
-        userPkgs = import inputs.nixpkgs-unstable {
-          inherit (prev) system;
-          config.allowUnfree = true;
-        };
-      })
-    ];
-  };
-
   imports = [
+    ./../default.nix
+
     inputs.disko.nixosModules.disko
     ./disko-config.nix
 
-    inputs.home-manager.nixosModules.home-manager
-    inputs.stylix.nixosModules.stylix
-
-    ./../../modules/system
     ./hardware-configuration.nix
 
     # Hardware Configuration - Uncomment lines that match your hardware
@@ -56,9 +41,6 @@
 
   # Home Manager Configuration
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {inherit inputs;};
     # This must match the username you define in users.users below
     users."roverp_vm" = {...}: {
       imports = [
@@ -83,10 +65,6 @@
 
   networking.hostName = "wisp-vm";
   time.timeZone = "Europe/Warsaw";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  # System Version - Don't change unless you know what you're doing (helps with system upgrades and compatibility)
-  system.stateVersion = "25.05";
 
   services.qemuGuest.enable = true;
 }
