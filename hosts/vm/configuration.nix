@@ -67,4 +67,6 @@
   time.timeZone = "Europe/Warsaw";
 
   services.qemuGuest.enable = true;
+
+  wisp.boot.systemdBoot.enable = true;
 }

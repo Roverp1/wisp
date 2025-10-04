@@ -11,9 +11,6 @@
     ./../default.nix
   ];
 
-  # Disable GUI components
-  wisp.wayland.enable = false;
-
   # Enable SSH for remote access
   services = {
     getty.autologinUser = lib.mkForce "aceso";
@@ -68,4 +65,9 @@
   ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
+
+  wisp = {
+    wayland.enable = false;
+    boot.enable = false;
+  };
 }
