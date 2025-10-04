@@ -43,5 +43,8 @@
   networking.hostName = "erebos";
   time.timeZone = "Europe/Warsaw";
 
-  wisp.boot.grub.enable = true;
+  wisp.boot.grub = {
+    enable = true;
+    enableCryptodisk = true;
+  };
 }

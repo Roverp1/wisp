@@ -19,10 +19,18 @@ in {
       description = "Whether to use systemd boot";
     };
 
-    grub.enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = "Whether to use grub boot (enabled by default if systemdBoot is disabled)";
+    grub = {
+      enable = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Whether to use grub boot (enabled by default if systemdBoot is disabled)";
+      };
+
+      enableCryptodisk = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable GRUB cryptodisk support";
+      };
     };
   };
 
@@ -53,7 +61,7 @@ in {
             enable = true;
             device = "nodev";
             efiSupport = true;
-            enableCryptodisk = true;
+            enableCryptodisk = cfg.grub.enableCryptodisk;
           };
 
           efi = {
