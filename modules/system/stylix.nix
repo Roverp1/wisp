@@ -21,7 +21,7 @@ in {
 
     base16Scheme = theme.base16Scheme;
     image = theme.wallpaper;
-    # polarity = theme.polarity;
+    polarity = theme.polarity;
 
     fonts = {
       sizes = {

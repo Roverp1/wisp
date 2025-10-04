@@ -13,6 +13,7 @@ in {
   gruvbox-dark-hard = {
     base16Scheme = themePath "gruvbox-dark-hard";
     wallpaper = ./wallpapers/wallhaven-3lp2md.jpg;
+    polarity = "dark";
   };
 
   rebecca = {
