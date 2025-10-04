@@ -109,19 +109,29 @@ in {
           background-color = mkLiteral "#00000003";
         };
 
-        inputbar =
-          {
-            width = mkLiteral "28.5em";
-            expand = false;
-            background-color = mkLiteral "@background";
-            border-radius = mkLiteral "1em 0em 0em 1em";
-            children = map mkLiteral ["entry"];
-          }
-          // (lib.optionalAttrs (cfg.wallpaper != null) {
-            background-image = mkLiteral "url(\"${cfg.wallpaper}\", width)";
-          });
+        inputbar = {
+          width = mkLiteral "28.5em";
+          expand = false;
+          background-color = mkLiteral "@background";
+          border-radius = mkLiteral "1em 0em 0em 1em";
+          children = map mkLiteral ["prompt" "entry"];
+          padding = mkLiteral "1.5em";
+          spacing = mkLiteral "0.5em";
+        };
 
-        entry.enabled = false;
+        prompt = {
+          enabled = true;
+          text-color = mkLiteral "@foreground";
+          padding = mkLiteral "0.5em 1em 0.5em 0em";
+        };
+
+        entry = {
+          enabled = true;
+          placeholder = "Search applications...";
+          placeholder-color = mkLiteral "@alternate-normal-foreground";
+          text-color = mkLiteral "@foreground";
+          cursor = mkLiteral "text";
+        };
 
         listbox = {
           background-color = mkLiteral "@background";
