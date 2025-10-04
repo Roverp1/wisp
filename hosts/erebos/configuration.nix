@@ -7,7 +7,7 @@
     ./../default.nix
 
     inputs.disko.nixosModules.disko
-    ./disko.nix
+    (import ./disko.nix {device = "/dev/disk/by-id/nvme-KINGSTON_SKC3000S1024G_50026B7686760CFD";})
   ];
 
   home-manager = {
@@ -30,15 +30,19 @@
     shell = pkgs.zsh;
   };
 
-  boot.initrd.luks.devices = {
-    cryptroot = {
-      device = "/dev/nvme0n1p3"; # change
-      keyFile = null;
-      allowDiscards = true;
-    };
-  };
+  swapDevices = [
+    {
+      device = "/.swapvol/swapfile";
+      size = 32 * 1024;
+    }
+  ];
 
-  swapDevices = [{device = "/dev/nvme0n1p2";}]; # change?
+  boot = {
+    resumeDevice = "/dev/mapper/cryptroot";
+    kernelParams = [
+      "resume_offset=<calculated-offset>" # Need to calculate this after install
+    ];
+  };
 
   networking.hostName = "erebos";
   time.timeZone = "Europe/Warsaw";
