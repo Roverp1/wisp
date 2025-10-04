@@ -42,7 +42,7 @@ in {
       };
     };
 
-    stylix.targets.zen-browser.enable = false;
-    # stylix.targets.zen-browser.profileNames = ["default"];
+    # stylix.targets.zen-browser.enable = false;
+    stylix.targets.zen-browser.profileNames = ["default"];
   };
 }
