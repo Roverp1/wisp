@@ -23,6 +23,8 @@ in {
     programs.zen-browser = {
       enable = true;
 
+      profiles.default.isDefault = true;
+
       policies = {
         DisableAppUpdate = true;
 
@@ -42,7 +44,7 @@ in {
       };
     };
 
-    # stylix.targets.zen-browser.enable = false;
-    stylix.targets.zen-browser.profileNames = ["default"];
+    stylix.targets.zen-browser.enable = false;
+    # stylix.targets.zen-browser.profileNames = ["default"];
   };
 }
