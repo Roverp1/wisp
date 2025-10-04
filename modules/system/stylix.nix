@@ -25,8 +25,8 @@ in {
 
     fonts = {
       sizes = {
-        applications = 14;
-        desktop = 13;
+        applications = 11;
+        desktop = 11;
       };
 
       monospace = {
