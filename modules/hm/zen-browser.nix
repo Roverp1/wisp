@@ -1,13 +1,14 @@
 {
   config,
   lib,
+  pkgs,
   inputs,
   ...
 }: let
   cfg = config.wisp.programs.zenBrowser;
 in {
   imports = [
-    inputs.zen-browser.homeModules.twilight
+    inputs.zen-browser.homeModules.beta
   ];
 
   options.wisp.programs.zenBrowser = {
