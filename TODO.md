@@ -1,3 +1,9 @@
+#
+
+- [ ] finish snapshots.nix module
+
+##
+
 - [ ] fix weird icons in gtk apps (pavucontrol specifically)
 
 ## Neovim
@@ -9,3 +15,4 @@
 ## Backup
 
 - [ ] windows vm
+- [ ] ssh keys?
