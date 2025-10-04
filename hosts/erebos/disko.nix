@@ -1,8 +1,8 @@
-{
+{device ? throw "Set to your disk device (e.g. /dev/sda)"}: {
   disko.devices = {
     main = {
       type = "disk";
-      device = "/dev/nvme0n1";
+      device = device;
 
       content = {
         type = "gpt";
@@ -19,15 +19,6 @@
             };
           };
 
-          swap = {
-            size = "32G";
-            content = {
-              type = "swap";
-              discardPolicy = "both";
-              resumeDevice = true;
-            };
-          };
-
           # LUKS-encrypted Btrfs partition
           luks = {
             # start with 90% and increase if needed?
@@ -36,8 +27,9 @@
               type = "luks";
               name = "cryptroot";
               settings = {
-                allowDiscrads = true;
-                keyFile = null;
+                allowDiscards = true;
+                # keyFile = null;
+                cryptsetup = "--perf-no_read_workqueue --perf-no_write_workqueue";
               };
 
               content = {
@@ -62,6 +54,11 @@
                   "snapshots" = {
                     mountpoint = "/snapshots";
                     mountOptions = options;
+                  };
+
+                  "swap" = {
+                    mountpoint = "/.swapvol";
+                    swap.swapfile.size = "32G";
                   };
                 };
               };
