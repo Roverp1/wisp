@@ -52,6 +52,12 @@ in {
       extraPortals = [pkgs.xdg-desktop-portal-gtk];
     };
 
+    networking.firewall = {
+      enable = true;
+      allowedTCPPorts = [22000]; # sync data (for syncthing)
+      allowedUDPPorts = [21027]; # local discovery
+    };
+
     nix = {
       settings.experimental-features = ["nix-command" "flakes"];
 

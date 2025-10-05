@@ -7,6 +7,7 @@
     ./xdg.nix
     ./neovim.nix
     ./zen-browser.nix
+    ./syncthing.nix
   ];
 
   # home-manager options go here
