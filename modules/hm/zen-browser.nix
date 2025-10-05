@@ -43,19 +43,19 @@ in {
           "uBlock0@raymondhill.net" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
             installation_mode = "force_installed";
-            pinned = true;
+            default_area = "navbar";
           };
 
           "${vimiumId}" = {
             install_url = "https://addons.mozilla.org/downloads/latest/vimium-ff/latest.xpi";
             installation_mode = "force_installed";
-            pinned = true;
+            default_area = "navbar";
           };
 
           "${oneTabId}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/onetab/latest.xpi";
             installation_mode = "force_installed";
-            pinned = true;
+            default_area = "navbar";
           };
 
           "${autoTabDiscardId}" = {
