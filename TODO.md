@@ -14,5 +14,6 @@
 
 ## Backup
 
-- [ ] windows vm
-- [ ] ssh keys?
+- [x] windows vm
+- [x] ssh keys?
+- [x] gpg keys
