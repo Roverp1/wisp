@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./rofi.nix
+    ./spicetify.nix
   ];
 
   options.wisp.guiBundle = {
