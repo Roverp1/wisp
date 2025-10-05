@@ -34,8 +34,8 @@
   };
 
   gtk.iconTheme = {
-    package = pkgs.papirus-icon-theme;
-    name = "Papirus-Dark";
+    package = pkgs.tela-icon-theme;
+    name = "Tela-dark";
   };
 
   stylix = {

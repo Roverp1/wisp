@@ -40,8 +40,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [tela-icon-theme];
-
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
@@ -53,7 +51,7 @@ in {
         show-icons = true;
         display-drun = " ";
         drun-display-format = "{name}";
-        icon-theme = "Papirus";
+        icon-theme = "Tela-dark";
       };
 
       theme = let
