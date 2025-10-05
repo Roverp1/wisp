@@ -117,8 +117,10 @@ in {
 
           bindkey "^f" autosuggest-accept
 
-          bindkey "^p" history-search-backward
-          bindkey "^n" history-search-forward
+          bindkey -M viins "^p" history-search-backward
+          bindkey -M viins "^n" history-search-forward
+          bindkey -M vicmd "j" history-search-forward
+          bindkey -M vicmd "k" history-search-backward
 
           bindkey -M viins "^w" backward-kill-word
         '';
