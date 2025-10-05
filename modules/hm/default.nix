@@ -33,6 +33,11 @@
     };
   };
 
+  gtk.iconTheme = {
+    package = pkgs.papirus-icon-theme;
+    name = "Papirus-Dark";
+  };
+
   stylix = {
     targets = {
       waybar.addCss = false;
