@@ -1,8 +1,11 @@
 {
   config,
   lib,
+  pkgs,
   ...
-}: {
+}: let
+  cfg = config.wisp.guiBundle;
+in {
   imports = [
     ./rofi.nix
     ./spicetify.nix
@@ -14,5 +17,12 @@
       default = config.wisp.wayland.enable;
       description = "Enable GUI bundle";
     };
+  };
+
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      vesktop
+      telegram-desktop
+    ];
   };
 }
