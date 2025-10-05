@@ -7,6 +7,8 @@
   cfg = config.wisp.wayland.hyprland;
 in {
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [brightnessctl];
+
     wayland.windowManager.hyprland = {
       enable = true;
       package = pkgs.hyprland;
