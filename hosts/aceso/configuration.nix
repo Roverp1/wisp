@@ -40,10 +40,14 @@
         ./../../modules/hm
       ];
 
-      wisp.wayland.enable = false;
-      wisp.programs = {
-        kitty.enable = false;
-        zenBrowser.enable = false;
+      wisp = {
+        wayland.enable = false;
+        guiBundle.enable = false;
+
+        programs = {
+          kitty.enable = false;
+          zenBrowser.enable = false;
+        };
       };
     };
   };
