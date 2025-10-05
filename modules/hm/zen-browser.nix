@@ -35,9 +35,31 @@ in {
           Fingerprinting = true;
         };
 
-        ExtensionSettings = {
+        ExtensionSettings = let
+          vimiumId = "{d7742d87-e61d-4b78-b8a1-b469842139fa}";
+          oneTabId = "extension@one-tab.com";
+          autoTabDiscardId = "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}";
+        in {
           "uBlock0@raymondhill.net" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+            installation_mode = "force_installed";
+            pinned = true;
+          };
+
+          "${vimiumId}" = {
+            install_url = "https://addons.mozilla.org/downloads/latest/vimium-ff/latest.xpi";
+            installation_mode = "force_installed";
+            pinned = true;
+          };
+
+          "${oneTabId}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/onetab/latest.xpi";
+            installation_mode = "force_installed";
+            pinned = true;
+          };
+
+          "${autoTabDiscardId}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/auto-tab-discard/latest.xpi";
             installation_mode = "force_installed";
           };
         };
