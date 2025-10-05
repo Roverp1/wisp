@@ -38,6 +38,10 @@ in {
             path = "${syncthingFolder}/main";
             devices = ["Matrixx_spesn"];
             type = "sendreceive";
+            versioning = {
+              type = "simple";
+              params.keep = "5";
+            };
           };
         };
 
