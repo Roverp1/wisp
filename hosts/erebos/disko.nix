@@ -1,5 +1,5 @@
 {device ? throw "Set to your disk device (e.g. /dev/sda)"}: {
-  disko.devices = {
+  disko.devices.disk = {
     main = {
       type = "disk";
       device = device;
@@ -29,8 +29,11 @@
               settings = {
                 allowDiscards = true;
                 # keyFile = null;
-                cryptsetup = "--perf-no_read_workqueue --perf-no_write_workqueue";
               };
+              extraFormatArgs = [
+                "--perf-no_read_workqueue"
+                "--perf-no_write_workqueue"
+              ];
 
               content = {
                 type = "btrfs";
