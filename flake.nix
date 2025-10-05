@@ -37,11 +37,18 @@
     };
   };
 
-  outputs = {...} @ inputs: {
+  outputs = {...} @ inputs: let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations = {
-      wisp = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      erebos = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [./hosts/erebos/configuration.nix];
+      };
 
+      wisp = inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
         specialArgs = {
           inherit inputs;
         };
@@ -51,7 +58,7 @@
       };
 
       aceso = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = {inherit inputs;};
         modules = [./hosts/aceso/configuration.nix];
       };

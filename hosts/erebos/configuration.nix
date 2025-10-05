@@ -11,7 +11,7 @@
   ];
 
   home-manager = {
-    users."erebos" = {...}: {
+    users."roverp" = {...}: {
       imports = [
         inputs.nix-index-database.homeModules.nix-index
         ./../../modules/hm
@@ -19,7 +19,7 @@
     };
   };
 
-  users.users."erebos" = {
+  users.users."roverp" = {
     isNormalUser = true;
     initialPassword = "laptop";
     extraGroups = [
