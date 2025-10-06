@@ -81,7 +81,7 @@ require("lualine").setup({
 		lualine_b = {
 			"branch",
 			"diff",
-			{ "filename", file_status = false, path = 1, color = { bg = colors.base02 } },
+			{ "filename", file_status = false, path = 4, color = { bg = colors.base02 } },
 			{ modified, color = { bg = colors.base08, fg = colors.base01 } },
 			{
 				"%w",
