@@ -5,6 +5,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		nix = { "alejandra" },
 		go = { "goimports", "gofmt" },
+		qml = { "qmlformat" },
 		css = prittier,
 		html = prittier,
 		javascript = prittier,

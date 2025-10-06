@@ -51,6 +51,7 @@ in {
 
           lua-language-server
           nixd
+          qt6.qtdeclarative
 
           stylua
           alejandra
@@ -137,6 +138,7 @@ in {
             plugin = nvim-treesitter.withPlugins (p: [
               p.tree-sitter-nix
               p.tree-sitter-lua
+              p.tree-sitter-qmljs
             ]);
             config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/treesitter.lua;
           }
