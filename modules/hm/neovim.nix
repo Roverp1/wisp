@@ -121,6 +121,11 @@ in {
             config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/auto-session.lua;
           }
 
+          {
+            plugin = nvim-autopairs;
+            config = toLua "require(\"nvim-autopairs\").setup()";
+          }
+
           vim-tmux-navigator
 
           telescope-fzf-native-nvim
@@ -143,9 +148,10 @@ in {
 
       extraLuaConfig = ''
         ${builtins.readFile ./../../Configs/.config/nvim/init.lua}
+        ${builtins.readFile ./../../Configs/.config/nvim/lua/plugins/init.lua}
         ${builtins.readFile ./../../Configs/.config/nvim/lua/config/keymaps.lua}
         ${builtins.readFile ./../../Configs/.config/nvim/lua/config/options.lua}
-        ${builtins.readFile ./../../Configs/.config/nvim/lua/plugins/init.lua}
+        ${builtins.readFile ./../../Configs/.config/nvim/lua/config/autocmds.lua}
       '';
     };
   };
