@@ -30,7 +30,7 @@
 
       tray = {
         icon-size = 18;
-        # spacing = 10;
+        spacing = 10;
       };
 
       battery = {
@@ -121,9 +121,9 @@ in {
           color: ${base03};
         }
 
-        #tray {
+        /* #tray {
           padding: 0 8px;
-        }
+        } */
       '';
     };
   };

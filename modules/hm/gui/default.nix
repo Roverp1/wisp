@@ -7,6 +7,7 @@
   cfg = config.wisp.guiBundle;
 in {
   imports = [
+    ./keepassxc.nix
     ./rofi.nix
     ./spicetify.nix
   ];

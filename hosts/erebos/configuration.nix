@@ -7,7 +7,10 @@
     ./../default.nix
 
     inputs.disko.nixosModules.disko
-    (import ./disko.nix {device = "/dev/disk/by-id/nvme-KINGSTON_SKC3000S1024G_50026B7686760CFD";})
+    # (import ./disko.nix {device = "/dev/disk/by-id/nvme-KINGSTON_SKC3000S1024G_50026B7686760CFD";})
+    ./disko-config.nix
+
+    ./hardware-configuration.nix
   ];
 
   home-manager = {
@@ -30,25 +33,25 @@
     shell = pkgs.zsh;
   };
 
-  swapDevices = [
-    {
-      device = "/.swapvol/swapfile";
-      size = 32 * 1024;
-    }
-  ];
-
-  boot = {
-    resumeDevice = "/dev/mapper/cryptroot";
-    kernelParams = [
-      "resume_offset=<calculated-offset>" # Need to calculate this after install
-    ];
-  };
+  # swapDevices = [
+  #   {
+  #     device = "/.swapvol/swapfile";
+  #     size = 32 * 1024;
+  #   }
+  # ];
+  #
+  # boot = {
+  #   resumeDevice = "/dev/mapper/cryptroot";
+  #   kernelParams = [
+  #     "resume_offset=<calculated-offset>" # Need to calculate this after install
+  #   ];
+  # };
 
   networking.hostName = "erebos";
   time.timeZone = "Europe/Warsaw";
 
-  wisp.boot.grub = {
+  wisp.boot.systemdBoot = {
     enable = true;
-    enableCryptodisk = true;
+    # enableCryptodisk = true;
   };
 }
