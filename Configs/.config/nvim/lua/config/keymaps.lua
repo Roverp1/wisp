@@ -25,10 +25,9 @@ map("n", "<leader>nb", "<cmd>enew<CR>", { desc = "buffer new" })
 
 map("n", "x", '"_x', { desc = "Save deleted character to the underlying register" })
 
--- Global LSP ?
--- map("i", "jl", function()
---   require("cmp").close()
--- end, { desc = "Hide LSP popup menu in insert mode" })
+-- LSP
+map("n", "gl", vim.diagnostic.open_float, { desc = "Show line diagnostic" })
+map("n", "<leader>ld", vim.diagnostic.setloclist, { desc = "List diagnostics" })
 
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })

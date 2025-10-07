@@ -23,6 +23,15 @@ local lsp_servers = {
 	ts_ls = {},
 }
 
+local x = vim.diagnostic.severity
+
+vim.diagnostic.config({
+	virtual_text = { prefix = "" },
+	signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "󰋼", [x.HINT] = "󰌵" } },
+	underline = true,
+	float = { border = "single" },
+})
+
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem = {
 	documentationFormat = { "markdown", "plaintext" },
