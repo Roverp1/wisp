@@ -52,6 +52,8 @@ in {
           lua-language-server
           nixd
           qt6.qtdeclarative
+          emmet-language-server
+          typescript-language-server
 
           stylua
           alejandra
