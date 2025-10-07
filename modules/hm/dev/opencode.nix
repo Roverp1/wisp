@@ -18,8 +18,13 @@ in {
       enable = true;
       package = pkgs.userPkgs.opencode;
 
-      # might be problem because of schema declaration duplication
-      settings = builtins.fromJSON (builtins.readFile ./../../../Configs/.config/opencode/opencode.json);
+      settings = {
+        theme = "system";
+        keybinds = {
+          leader = "alt+b";
+          input_newline = "alt+enter";
+        };
+      };
     };
   };
 }
