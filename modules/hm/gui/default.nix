@@ -24,6 +24,7 @@ in {
     home.packages = with pkgs; [
       vesktop
       telegram-desktop
+      teams-for-linux # TODO: delete as soon as possible
     ];
   };
 }
