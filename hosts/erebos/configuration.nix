@@ -6,6 +6,8 @@
   imports = [
     ./../default.nix
 
+    inputs.nixos-hardware.nixosModules.asus-fx506hm
+
     inputs.disko.nixosModules.disko
     # (import ./disko.nix {device = "/dev/disk/by-id/nvme-KINGSTON_SKC3000S1024G_50026B7686760CFD";})
     ./disko-config.nix
