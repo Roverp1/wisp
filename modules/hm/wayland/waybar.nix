@@ -13,7 +13,7 @@
 
       modules-left = ["hyprland/workspaces" "hyprland/window"];
       modules-center = [];
-      modules-right = ["network" "battery" "tray" "clock"];
+      modules-right = ["network" "battery" "tray" "hyprland/language" "clock"];
 
       "hyprland/workspaces" = {
         format = "{id}";
@@ -22,6 +22,13 @@
 
       "hyprland/window" = {
         separate-outputs = true;
+      };
+
+      "hyprland/language" = {
+        format = "{}";
+        format-rpd = "rpd";
+        format-ru = "ru";
+        format-en = "en";
       };
 
       clock = {
@@ -107,6 +114,7 @@ in {
 
         #network,
         #battery,
+        #language,
         #clock {
           padding: 0 10px;
 
