@@ -1,0 +1,36 @@
+;; configurate kanata behaviour
+(defcfg
+  process-unmapped-keys yes
+)
+
+;; defines the order of keys that the `deflayer` entries will operate on
+(defsrc
+  Backspace
+  ;; a o e u i   d h t n s
+  caps  a s d f g   h j k l ;
+)
+
+;; defines variables
+(defvar
+  tap-time 170
+  hold-time 200
+)
+
+;; defines an alias - 'shortcut label' for an action
+(defalias
+  a-mod (tap-hold-release $tap-time $hold-time a lmeta)
+  s-mod (tap-hold-release $tap-time $hold-time s lalt)
+  d-mod (tap-hold-release $tap-time $hold-time d lshft)
+  f-mod (tap-hold-release $tap-time $hold-time f lctrl)
+
+  j-mod (tap-hold-release $tap-time $hold-time j rctrl)
+  k-mod (tap-hold-release $tap-time $hold-time k rshift)
+  l-mod (tap-hold-release $tap-time $hold-time l lalt)
+  ;-mod (tap-hold-release $tap-time $hold-time ; rmeta)
+)
+
+;; defines how each physical key mapped in `defsrc` behaves when kanata runs
+(deflayer base-home_row_mods-rpd
+  Backspace
+  caps   @a-mod @s-mod @d-mod @f-mod _   _ @j-mod @k-mod @l-mod @;-mod
+)

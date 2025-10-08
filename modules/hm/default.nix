@@ -6,6 +6,7 @@
 
     ./xdg.nix
     ./neovim.nix
+    ./kanata.nix
     ./zen-browser.nix
     ./syncthing.nix
   ];
