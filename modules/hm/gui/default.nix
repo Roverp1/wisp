@@ -10,6 +10,7 @@ in {
     ./keepassxc.nix
     ./rofi.nix
     ./spicetify.nix
+    ./zathura.nix
   ];
 
   options.wisp.guiBundle = {
