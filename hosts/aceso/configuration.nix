@@ -25,7 +25,7 @@
   };
 
   # Create rescue user with SSH access
-  users.users.aceso = {
+  users.users.roverp = {
     isNormalUser = true;
     initialPassword = "rescue";
     extraGroups = ["wheel" "networkmanager"];
@@ -34,7 +34,7 @@
 
   # Home Manager for minimal shell setup
   home-manager = {
-    users.aceso = {
+    users.roverp = {
       imports = [
         inputs.nix-index-database.homeModules.nix-index
         ./../../modules/hm

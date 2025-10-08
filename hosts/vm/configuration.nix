@@ -42,7 +42,7 @@
   # Home Manager Configuration
   home-manager = {
     # This must match the username you define in users.users below
-    users."roverp_vm" = {...}: {
+    users."roverp" = {...}: {
       imports = [
         inputs.nix-index-database.homeModules.nix-index
         ./../../modules/hm
@@ -52,7 +52,7 @@
   };
 
   # User Account Setup - REQUIRED: Change "hydenix" to your desired username (must match above)
-  users.users.roverp_vm = {
+  users.users.roverp = {
     isNormalUser = true;
     initialPassword = "hydenix"; # SECURITY: Change this password after first login with `passwd`
     extraGroups = [

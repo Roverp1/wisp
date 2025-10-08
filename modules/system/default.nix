@@ -5,6 +5,7 @@
     ./wayland.nix
     ./audio.nix
     ./xkb.nix
+    ./kanata.nix
 
     ./stylix.nix
   ];
