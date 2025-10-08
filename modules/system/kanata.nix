@@ -15,7 +15,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     users.groups.uinput = {};
-    users.users.roverp.extraGroups = ["input" "uinput"];
+    users.users."roverp".extraGroups = ["input" "uinput"];
 
     services.udev.extraRules = ''
       KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"

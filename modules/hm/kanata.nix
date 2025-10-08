@@ -10,11 +10,11 @@ in {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Enable kanata module (no autostart)";
+      description = "Enable kanata module (no autostart | requires kanata system module to work)";
     };
   };
 
-  config = lib.mkIf {
+  config = lib.mkIf cfg.enable {
     home.packages = [pkgs.kanata];
 
     home.file.".config/kanata/kanata.kbd".source = ./../../Configs/.config/kanata/kanata.kbd;
