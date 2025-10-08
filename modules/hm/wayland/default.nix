@@ -6,6 +6,8 @@
   imports = [
     ./hyprland.nix
     ./waybar.nix
+
+    ./quickshell
   ];
 
   options.wisp.wayland = {
