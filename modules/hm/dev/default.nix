@@ -1,5 +1,7 @@
 {lib, ...}: {
   imports = [
+    ./cli.nix
+
     ./shell
 
     ./kitty.nix

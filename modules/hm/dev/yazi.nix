@@ -21,8 +21,6 @@ in {
         p7zip
         jq
         poppler
-        fd
-        ripgrep
         resvg
         imagemagick
         wl-clipboard

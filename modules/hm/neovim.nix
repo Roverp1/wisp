@@ -15,6 +15,15 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      lua-language-server
+      nixd
+      qt6.qtdeclarative
+      emmet-language-server
+      typescript-language-server
+      gopls
+    ];
+
     programs.neovim = let
       toLua = str: "lua << EOF\n${str}\nEOF\n";
       toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
@@ -43,19 +52,6 @@ in {
 
       extraPackages = with pkgs;
         [
-          gcc
-          nodejs
-
-          ripgrep
-          fd
-
-          lua-language-server
-          nixd
-          qt6.qtdeclarative
-          emmet-language-server
-          typescript-language-server
-          gopls
-
           stylua
           alejandra
           prettierd
