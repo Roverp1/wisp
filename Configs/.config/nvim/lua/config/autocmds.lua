@@ -9,17 +9,26 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- files with 4 space tabs
+-- files with 2 space tabs
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
-		"lua",
-		"go",
-		"hyprlang",
+		"html",
+		"css",
+		"scss",
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
+		"json",
+		"jsonc",
+		"yaml",
+		"markdown",
+		"nix",
 	},
 	callback = function()
-		vim.bo.tabstop = 4
-		vim.bo.shiftwidth = 4
-		vim.bo.softtabstop = 4
+		vim.bo.tabstop = 2
+		vim.bo.shiftwidth = 2
+		vim.bo.softtabstop = 2
 	end,
 })
 
