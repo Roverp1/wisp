@@ -54,6 +54,7 @@ in {
           qt6.qtdeclarative
           emmet-language-server
           typescript-language-server
+          gopls
 
           stylua
           alejandra
@@ -141,6 +142,7 @@ in {
               p.tree-sitter-nix
               p.tree-sitter-lua
               p.tree-sitter-qmljs
+              p.tree-sitter-go
             ]);
             config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/treesitter.lua;
           }

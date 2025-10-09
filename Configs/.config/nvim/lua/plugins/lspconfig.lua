@@ -21,6 +21,7 @@ local lsp_servers = {
 	qmlls = {},
 	emmet_language_server = {},
 	ts_ls = {},
+	gopls = {},
 }
 
 local x = vim.diagnostic.severity
