@@ -1,8 +1,11 @@
 {
   config,
   lib,
+  pkgs,
   ...
-}: {
+}: let
+  cfg = config.wisp.wayland;
+in {
   imports = [
     ./hyprland.nix
     ./waybar.nix
@@ -28,5 +31,11 @@
       default = config.wisp.wayland.hyprland.enable;
       description = "Enable waybar module";
     };
+  };
+
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      wl-clipboard
+    ];
   };
 }

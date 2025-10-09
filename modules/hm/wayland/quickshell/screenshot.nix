@@ -15,8 +15,10 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs.userPkgs; [
-      wl-clipboard
+    home.packages = with pkgs; [
+      grim
+      imagemagick
+      swappy
     ];
 
     xdg.configFile."quickshell/screenshot.qml".source = ./../../../../Configs/.config/quickshell/screenshot.qml;
