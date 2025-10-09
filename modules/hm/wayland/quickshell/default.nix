@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -19,6 +20,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs.userPkgs; [quickshell];
+    home.packages = [inputs.quickshell.packages.${pkgs.system}.default];
   };
 }

@@ -29,6 +29,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake/beta";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
