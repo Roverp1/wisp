@@ -5,6 +5,15 @@
   ...
 }: let
   cfg = config.wisp.quickshell.screenshot;
+
+  screenshot-script = pkgs.writeShellScriptBin "qs-screenshot" ''
+    if pgrep -f "quickshell.*screenshot.qml" > /dev/null; then
+      echo "Screenshot tool already running"
+      exit 0
+    fi
+
+    quickshell -p ${config.xdg.configHome}/quickshell/screenshot.qml
+  '';
 in {
   options.wisp.quickshell.screenshot = {
     enable = lib.mkOption {
@@ -16,6 +25,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
+      screenshot-script
+
       grim
       imagemagick
       swappy
