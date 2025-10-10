@@ -18,7 +18,9 @@ local lsp_servers = {
 	},
 
 	nixd = {},
-	qmlls = {},
+	qmlls = {
+		cmd = { "qmlls", "-E" },
+	},
 	emmet_language_server = {},
 	ts_ls = {},
 	gopls = {},
