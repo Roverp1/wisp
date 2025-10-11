@@ -105,15 +105,22 @@ in {
           setopt extended_glob
           setopt glob_dots
 
+          # git-specific fzf completion
+          FZF_COMPLETION_TRIGGER=""
+          source ${./../../../../Configs/.config/zsh/functions/fzf_complete_git.zsh}
+
           # History
           setopt hist_reduce_blanks
           setopt hist_ignore_all_dups
           setopt hist_save_no_dups
           setopt hist_find_no_dups
 
+          # initialize functions or whatever
           autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
           zle -N up-line-or-beginning-search
           zle -N down-line-or-beginning-search
+
+          zle -N fzf-git-files
 
           # Key binds
           bindkey -v
@@ -127,6 +134,8 @@ in {
           bindkey -M vicmd "k" down-line-or-beginning-search
 
           bindkey -M viins "^w" backward-kill-word
+
+          bindkey -M viins "^g" fzf-git-files
         '';
       in
         lib.mkMerge [purePromptConfig completionConfig fzfTabConfig zshConfig];
