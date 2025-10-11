@@ -24,6 +24,9 @@ local lsp_servers = {
 	emmet_language_server = {},
 	ts_ls = {},
 	gopls = {},
+	bashls = {
+		filetypes = { "sh", "bash", "zsh" },
+	},
 }
 
 local x = vim.diagnostic.severity

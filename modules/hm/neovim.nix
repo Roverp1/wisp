@@ -139,6 +139,7 @@ in {
               p.tree-sitter-lua
               p.tree-sitter-qmljs
               p.tree-sitter-go
+              p.tree-sitter-bash
             ]);
             config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/treesitter.lua;
           }

@@ -67,5 +67,19 @@
         modules = [./hosts/aceso/configuration.nix];
       };
     };
+
+    devShells.${system} = let
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in {
+      shell-dev = pkgs.mkShell {
+        packages = with pkgs; [
+          bash-language-server
+          shfmt
+        ];
+      };
+    };
   };
 }
