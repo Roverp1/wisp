@@ -40,7 +40,9 @@ opt.undofile = true
 opt.splitbelow = true
 opt.splitright = true
 
-opt.updatetime = 250 -- ?
+opt.updatetime = 250
+opt.autoread = true
+
 opt.whichwrap:append("<>[]hl")
 
 -- disable some default providers
