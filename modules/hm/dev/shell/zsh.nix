@@ -111,16 +111,20 @@ in {
           setopt hist_save_no_dups
           setopt hist_find_no_dups
 
+          autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+          zle -N up-line-or-beginning-search
+          zle -N down-line-or-beginning-search
+
           # Key binds
           bindkey -v
           export KEYTIMEOUT=1
 
           bindkey "^f" autosuggest-accept
 
-          bindkey -M viins "^p" history-search-backward
-          bindkey -M viins "^n" history-search-forward
-          bindkey -M vicmd "j" history-search-forward
-          bindkey -M vicmd "k" history-search-backward
+          bindkey -M viins "^p" up-line-or-beginning-search
+          bindkey -M viins "^n" down-line-or-beginning-search
+          bindkey -M vicmd "j" up-line-or-beginning-search
+          bindkey -M vicmd "k" down-line-or-beginning-search
 
           bindkey -M viins "^w" backward-kill-word
         '';
