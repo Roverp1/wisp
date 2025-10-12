@@ -90,7 +90,7 @@ in {
       GNUPGHOME = "${config.xdg.dataHome}/gnupg";
 
       # FZF configuration
-      # FZF_DEFAULT_OPTS = "--style minimal --color 16 --layout=reverse --height 30%";
+      # FZF_DEFAULT_OPTS = "--layout=reverse --preview-window=right,50%,border-sharp,wrap";
       # ZDOTDIR = "${config.xdg.configHome}/zsh";
 
       # Additional XDG-related variables
