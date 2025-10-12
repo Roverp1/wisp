@@ -43,6 +43,19 @@ in {
               params.keep = "5";
             };
           };
+
+          "AsterCraft-private" = {
+            enable = true;
+
+            id = "qhwhm-oddda";
+            path = "${config.home.homeDirectory}/Documents/AsterCraft-private";
+            devices = ["Matrixx_spesn"];
+            type = "sendreceive";
+            versioning = {
+              type = "simple";
+              params.keep = "1";
+            };
+          };
         };
 
         options = {
