@@ -16,6 +16,10 @@ in {
   config = lib.mkIf cfg.enable {
     programs.zathura = {
       enable = true;
+
+      extraConfig = ''
+        set selection-clipboard clipboard
+      '';
     };
   };
 }
