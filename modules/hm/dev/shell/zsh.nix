@@ -106,7 +106,7 @@ in {
           setopt glob_dots
 
           # git-specific fzf completion
-          FZF_COMPLETION_TRIGGER=""
+          # FZF_COMPLETION_TRIGGER=""
           source ${./../../../../Configs/.config/zsh/functions/fzf_complete_git.zsh}
 
           # History
