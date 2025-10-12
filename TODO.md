@@ -1,11 +1,15 @@
 #
 
-- [ ] finish snapshots.nix module
+## misc
 
-##
+- [ ] finish snapshots.nix module
+- [ ] configure sops
+- [ ] declare secrets with sops-nix
+- [ ] configure ssh agent to have my key (or maybe gpg agent? to manage ssh keys)
+
+## ui
 
 - [x] fix weird icons in gtk apps (pavucontrol specifically)
-- [ ] configure ssh agent autostart
 
 ## Neovim
 
