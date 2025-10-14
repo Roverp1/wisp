@@ -13,7 +13,7 @@
 
 ## Neovim
 
-- [ ] treesitter for tsx
+- [x] treesitter for tsx
 - [x] lsp keybinds
 - [ ] A to append + automatically indent to the proper level
 - [ ] rebinding p and P to automatically format lines when they're pasted
