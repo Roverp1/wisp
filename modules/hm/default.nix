@@ -52,7 +52,7 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    enableZshIntegration = true;
+    enableZshIntegration = config.wisp.shell.zsh.enable;
     pinentry.package = pkgs.pinentry-curses;
 
     # defaultCacheTtl ?
