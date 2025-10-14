@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./dev
     ./wayland
@@ -23,8 +28,6 @@
     };
   };
 
-  services.ssh-agent.enable = true;
-
   programs = {
     git = {
       enable = true;
@@ -35,6 +38,26 @@
         init.defaultBranch = "main";
       };
     };
+
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+
+      matchBlocks."*" = {
+        addKeysToAgent = "yes";
+      };
+    };
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+    enableZshIntegration = true;
+    pinentry.package = pkgs.pinentry-curses;
+
+    # defaultCacheTtl ?
+    defaultCacheTtlSsh = 28800;
+    maxCacheTtlSsh = 28800;
   };
 
   gtk.iconTheme = {
