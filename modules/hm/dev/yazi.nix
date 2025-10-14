@@ -14,14 +14,21 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      file
-      ffmpeg
-      p7zip
-      jq
-      poppler
-      resvg
-    ];
+    home.packages = with pkgs;
+      [
+        file
+        ffmpeg
+        p7zip
+        jq
+        poppler
+        fd
+        ripgrep
+        resvg
+        imagemagick
+        wl-clipboard
+      ]
+      ++ lib.optional config.roverp.programs.fzf.enable fzf
+      ++ lib.optional config.roverp.shell.zoxide.enable zoxide;
 
     programs.yazi = {
       enable = true;
