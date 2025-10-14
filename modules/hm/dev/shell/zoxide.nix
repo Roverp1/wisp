@@ -3,12 +3,12 @@
   lib,
   ...
 }: let
-  cfg = config.roverp.shell.zoxide;
+  cfg = config.wisp.shell.zoxide;
 in {
   options = {
-    roverp.shell.zoxide.enable = lib.mkOption {
+    wisp.shell.zoxide.enable = lib.mkOption {
       type = lib.types.bool;
-      default = config.roverp.shell.zsh.enable;
+      default = config.wisp.shell.zsh.enable;
       description = "Enable zoxide module";
     };
   };
@@ -17,7 +17,7 @@ in {
     programs.zoxide = {
       enable = true;
 
-      enableZshIntegration = config.roverp.shell.zsh.enable;
+      enableZshIntegration = config.wisp.shell.zsh.enable;
 
       options = ["--cmd cd"];
     };

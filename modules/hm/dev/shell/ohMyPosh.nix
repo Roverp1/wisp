@@ -3,10 +3,10 @@
   lib,
   ...
 }: let
-  cfg = config.roverp.shell.ohMyPosh;
+  cfg = config.wisp.shell.ohMyPosh;
 in {
   options = {
-    roverp.shell.ohMyPosh.enable = lib.mkOption {
+    wisp.shell.ohMyPosh.enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enable oh-my-posh module";

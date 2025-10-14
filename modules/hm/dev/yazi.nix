@@ -27,8 +27,8 @@ in {
         imagemagick
         wl-clipboard
       ]
-      ++ lib.optional config.roverp.programs.fzf.enable fzf
-      ++ lib.optional config.roverp.shell.zoxide.enable zoxide;
+      ++ lib.optional config.wisp.programs.fzf.enable fzf
+      ++ lib.optional config.wisp.shell.zoxide.enable zoxide;
 
     programs.yazi = {
       enable = true;

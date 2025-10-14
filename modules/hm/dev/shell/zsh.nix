@@ -4,10 +4,10 @@
   pkgs,
   ...
 }: let
-  cfg = config.roverp.shell.zsh;
+  cfg = config.wisp.shell.zsh;
 in {
   options = {
-    roverp.shell.zsh = {
+    wisp.shell.zsh = {
       enable = lib.mkOption {
         type = lib.types.bool;
         default = true;
@@ -16,13 +16,13 @@ in {
 
       purePrompt.enable = lib.mkOption {
         type = lib.types.bool;
-        default = cfg.enable && !config.roverp.shell.ohMyPosh.enable;
+        default = cfg.enable && !config.wisp.shell.ohMyPosh.enable;
         description = "Enable pure prompt for zsh";
       };
 
       fzfIntegration.enable = lib.mkOption {
         type = lib.types.bool;
-        default = config.roverp.programs.fzf.enable;
+        default = config.wisp.programs.fzf.enable;
         description = "Enable fzf integration for zsh";
       };
     };

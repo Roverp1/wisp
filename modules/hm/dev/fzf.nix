@@ -3,12 +3,12 @@
   lib,
   ...
 }: let
-  cfg = config.roverp.programs.fzf;
+  cfg = config.wisp.programs.fzf;
 in {
   options = {
-    roverp.programs.fzf.enable = lib.mkOption {
+    wisp.programs.fzf.enable = lib.mkOption {
       type = lib.types.bool;
-      default = config.roverp.shell.zsh.enable;
+      default = config.wisp.shell.zsh.enable;
       description = "Enable fzf module";
     };
   };
@@ -17,7 +17,7 @@ in {
     programs.fzf = {
       enable = true;
 
-      enableZshIntegration = config.roverp.shell.zsh.enable;
+      enableZshIntegration = config.wisp.shell.zsh.enable;
     };
   };
 }
