@@ -5,11 +5,20 @@
 - [ ] finish snapshots.nix module
 - [ ] configure sops
 - [ ] declare secrets with sops-nix
-- [ ] configure ssh agent to have my key (or maybe gpg agent? to manage ssh keys)
+- [x] configure ssh agent to have my key (or maybe gpg agent? to manage ssh keys)
+- [ ] create separate module for gpg-agent or just structer ssh/gpg better
 
 ## ui
 
 - [x] fix weird icons in gtk apps (pavucontrol specifically)
+
+## quickshell
+
+### screenshot script
+
+- [ ] in screenshot script - display selected area pixel count outside of the selected area
+- [ ] remove cursor capturing in screenshot script
+- [ ] remove overlay appearance animation for the screenshot script
 
 ## Neovim
 
