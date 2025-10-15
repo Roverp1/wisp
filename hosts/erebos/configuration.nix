@@ -21,6 +21,10 @@
         inputs.nix-index-database.homeModules.nix-index
         ./../../modules/hm
       ];
+
+      wisp = {
+        sanBundle.enable = true;
+      };
     };
   };
 
