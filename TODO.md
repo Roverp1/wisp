@@ -11,6 +11,7 @@
 ## ui
 
 - [x] fix weird icons in gtk apps (pavucontrol specifically)
+- [ ] fix cursor in gtk apps? (scilab specifically)
 
 ## quickshell
 
