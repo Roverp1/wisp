@@ -24,6 +24,7 @@
 
       wisp = {
         sanBundle.enable = true;
+        cliBundle.optional = true;
       };
     };
   };
