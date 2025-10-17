@@ -18,10 +18,11 @@ in {
     home.packages = with pkgs; [
       lua-language-server
       nixd
-      qt6.qtdeclarative
       emmet-language-server
       typescript-language-server
       gopls
+
+      qt6.qtdeclarative
     ];
 
     programs.neovim = let
@@ -144,6 +145,9 @@ in {
               p.tree-sitter-javascript
               p.tree-sitter-typescript
               p.tree-sitter-tsx
+
+              p.tree-sitter-css
+              p.tree-sitter-scss
             ]);
             config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/treesitter.lua;
           }
