@@ -20,13 +20,14 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [openh264];
     programs.zen-browser = {
       enable = true;
 
       profiles.default.isDefault = true;
 
       policies = {
-        DisableAppUpdate = true;
+        DisableAppUpdate = false;
 
         DisableTelemetry = true;
         EnableTrackingProtection = {
