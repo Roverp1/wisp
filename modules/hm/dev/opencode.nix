@@ -24,6 +24,14 @@ in {
           leader = "alt+b";
           input_newline = "alt+enter";
         };
+
+        lsp = {
+          # doesnt work?
+          "qmlls" = {
+            command = ["qmlls" "-E"];
+            extensions = [".qml"];
+          };
+        };
       };
     };
   };
