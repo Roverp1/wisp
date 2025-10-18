@@ -12,6 +12,12 @@ in {
       default = true;
       description = "Enable XDG base directory specification";
     };
+
+    codeHome = lib.mkOption {
+      type = lib.types.str;
+      default = "${config.home.homeDirectory}/code";
+      description = "Directory fosr code projects";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -77,6 +83,8 @@ in {
       XDG_TEMPLATES_DIR = config.xdg.userDirs.templates;
       XDG_VIDEOS_DIR = config.xdg.userDirs.videos;
 
+      CODE_DIR = cfg.codeHome;
+
       # Development tools
       CARGO_HOME = "${config.xdg.dataHome}/cargo";
       GOPATH = "${config.xdg.dataHome}/go";
@@ -98,17 +106,6 @@ in {
       PARALLEL_HOME = "${config.xdg.configHome}/parallel";
       SCREENRC = "${config.xdg.configHome}/screen/screenrc";
       ZSH_AUTOSUGGEST_STRATEGY = "history completion";
-
-      # History configuration // explicit to not nuke history
-      # HISTFILE = "\${HISTFILE:-\$HOME/.zsh_history}";
-      # HISTSIZE = "10000";
-      # SAVEHIST = "10000";
-      # setopt_EXTENDED_HISTORY = "true";
-      # setopt_INC_APPEND_HISTORY = "true";
-      # setopt_SHARE_HISTORY = "true";
-      # setopt_HIST_EXPIRE_DUPS_FIRST = "true";
-      # setopt_HIST_IGNORE_DUPS = "true";
-      # setopt_HIST_IGNORE_ALL_DUPS = "true";
     };
   };
 }
