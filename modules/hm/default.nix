@@ -9,6 +9,8 @@
     ./wayland
     ./gui
 
+    ./san # TODO: remove as soon as possible
+
     ./xdg.nix
     ./neovim.nix
     ./kanata.nix
@@ -18,9 +20,6 @@
 
   # home-manager options go here
   home = {
-    packages = with pkgs; [
-    ];
-
     sessionVariables = {
       # Default programs
       EDITOR = "nvim";
@@ -37,6 +36,15 @@
       extraConfig = {
         init.defaultBranch = "main";
       };
+
+      aliases = {
+        lg = "log --oneline --graph";
+      };
+    };
+
+    gpg = {
+      enable = true;
+      homedir = "${config.xdg.dataHome}/gnupg";
     };
 
     ssh = {
