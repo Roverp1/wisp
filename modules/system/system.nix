@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -15,9 +16,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-    ];
-
     fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
@@ -25,6 +23,8 @@ in {
 
       nerd-fonts.jetbrains-mono
     ];
+
+    nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     programs = {
       gnupg.agent = {
