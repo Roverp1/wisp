@@ -10,6 +10,7 @@ local lsp_servers = {
 					library = {
 						vim.fn.expand("$VIMRUNTIME/lua"),
 						unpack(vim.api.nvim_list_runtime_paths()), -- works?
+						"${3rd}/luv/library",
 					},
 				},
 				telemetry = { enable = false },
@@ -17,7 +18,36 @@ local lsp_servers = {
 		},
 	},
 
-	nixd = {},
+	nixd = {
+		settings = {
+			nixd = {
+				nixpkgs = {
+					expr = "import <nixpkgs> { }",
+				},
+
+				options = {
+					nixos = {
+						expr = string.format(
+							"(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.%s.options",
+							vim.uv.os_gethostname()
+						),
+					},
+
+					home_manager = {
+						expr = string.format(
+							-- optimal complition for integrated home-manager
+							-- allows for completing my custom options (without metadata)
+							-- and built in home-manager options (with metadata)
+							"((builtins.getFlake (builtins.toString ./.)).nixosConfigurations.%s.options.home-manager.users.value.%s // (builtins.getFlake (builtins.toString ./.)).nixosConfigurations.%s.options.home-manager.users.type.getSubOptions [])",
+							vim.uv.os_gethostname(),
+							vim.env.USER,
+							vim.uv.os_gethostname()
+						),
+					},
+				},
+			},
+		},
+	},
 	qmlls = {
 		cmd = { "qmlls", "-E" },
 	},
