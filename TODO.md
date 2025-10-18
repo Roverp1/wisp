@@ -15,6 +15,9 @@
 
 ## quickshell
 
+have you seen example of such apply function, or why did you implemented ┃
+┃ it?l
+
 ### screenshot script
 
 - [ ] in screenshot script - display selected area pixel count outside of the selected area
@@ -27,6 +30,8 @@
 - [x] lsp keybinds
 - [ ] A to append + automatically indent to the proper level
 - [ ] rebinding p and P to automatically format lines when they're pasted
+- [ ] find and figure out new go to definition keymap
+- [ ] set up formatting with neovim lsp instead of conform?
 
 ## zsh
 
