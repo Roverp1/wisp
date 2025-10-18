@@ -23,7 +23,7 @@ in {
       settings = {
         devices = {
           "Matrixx_spesn" = {
-            id = "MKRVTRT-FYGKE65-H6FOPMK-54UUD3V-ROVNRGR-663YTXO-32DNGCI-ZZXZBAL";
+            id = "MKRVTRT-FYGKE65-H6FOPMK-54UUD3V-ROVNRGR-663YTXO-32DNGCI-ZZXZBAL"; # private?
             name = "Personal android phone";
           };
         };
