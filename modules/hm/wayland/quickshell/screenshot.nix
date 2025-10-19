@@ -29,8 +29,9 @@ in {
 
       grim
       imagemagick
-      swappy
     ];
+
+    wisp.programs.swappy.enable = true;
 
     xdg.configFile."quickshell/screenshot.qml".source = ./../../../../Configs/.config/quickshell/screenshot.qml;
   };

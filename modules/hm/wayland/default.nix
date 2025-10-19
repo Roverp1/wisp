@@ -11,6 +11,8 @@ in {
     ./waybar.nix
 
     ./quickshell
+
+    ./swappy.nix
   ];
 
   options.wisp.wayland = {
