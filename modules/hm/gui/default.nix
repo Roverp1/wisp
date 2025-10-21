@@ -11,6 +11,8 @@ in {
     ./rofi.nix
     ./spicetify.nix
     ./zathura.nix
+
+    ./chromium.nix
   ];
 
   options.wisp.guiBundle = {
@@ -18,6 +20,12 @@ in {
       type = lib.types.bool;
       default = config.wisp.wayland.enable;
       description = "Enable GUI bundle";
+    };
+
+    optional = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable optional GUI bundle (secondary/not very important apps)";
     };
   };
 

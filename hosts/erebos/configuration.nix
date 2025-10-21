@@ -25,6 +25,7 @@
       wisp = {
         sanBundle.enable = true;
         cliBundle.optional = true;
+        guiBundle.optional = true;
       };
     };
   };
