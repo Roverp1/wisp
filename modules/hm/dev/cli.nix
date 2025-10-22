@@ -28,6 +28,7 @@ in {
 
         ripgrep
         fd
+        tree
       ]
       ++ lib.optionals cfg.optional [gh];
   };
