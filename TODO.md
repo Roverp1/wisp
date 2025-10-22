@@ -7,6 +7,9 @@
 - [ ] declare secrets with sops-nix
 - [x] configure ssh agent to have my key (or maybe gpg agent? to manage ssh keys)
 - [ ] create separate module for gpg-agent or just structer ssh/gpg better
+- [ ] create go module (and maybe for other languages) - define dependacies, make neovim lsp dependent on this module
+- use pretty git logging like this?:
+  > git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 ## ui
 
