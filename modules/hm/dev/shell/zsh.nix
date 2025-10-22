@@ -119,6 +119,7 @@ in {
           autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
           zle -N up-line-or-beginning-search
           zle -N down-line-or-beginning-search
+          autoload edit-command-line; zle -N edit-command-line
 
           zle -N fzf-git-files
 
@@ -136,6 +137,7 @@ in {
           bindkey -M viins "^w" backward-kill-word
 
           bindkey -M viins "^g" fzf-git-files
+          bindkey "^x^e" edit-command-line
         '';
       in
         lib.mkMerge [purePromptConfig completionConfig fzfTabConfig zshConfig];
