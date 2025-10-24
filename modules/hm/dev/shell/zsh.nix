@@ -131,8 +131,8 @@ in {
 
           bindkey -M viins "^p" up-line-or-beginning-search
           bindkey -M viins "^n" down-line-or-beginning-search
-          bindkey -M vicmd "j" up-line-or-beginning-search
-          bindkey -M vicmd "k" down-line-or-beginning-search
+          bindkey -M vicmd "j" down-line-or-beginning-search
+          bindkey -M vicmd "k" up-line-or-beginning-search
 
           bindkey -M viins "^w" backward-kill-word
 
