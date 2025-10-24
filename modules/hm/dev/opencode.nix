@@ -19,7 +19,7 @@ in {
       package = pkgs.userPkgs.opencode;
 
       settings = {
-        theme = "system";
+        theme = lib.mkForce "system"; # leave mkForce or disable stylix module?
         keybinds = {
           leader = "alt+b";
           input_newline = "alt+enter";
