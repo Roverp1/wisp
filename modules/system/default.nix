@@ -8,5 +8,6 @@
     ./kanata.nix
 
     ./stylix.nix
+    ./virtualisation.nix
   ];
 }
