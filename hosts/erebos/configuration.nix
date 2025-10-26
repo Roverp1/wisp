@@ -58,8 +58,12 @@
   networking.hostName = "erebos";
   time.timeZone = "Europe/Warsaw";
 
-  wisp.boot.systemdBoot = {
-    enable = true;
-    # enableCryptodisk = true;
+  wisp = {
+    boot.systemdBoot = {
+      enable = true;
+      # enableCryptodisk = true;
+    };
+
+    virtualisation.enable = true;
   };
 }
