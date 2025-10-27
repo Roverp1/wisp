@@ -1,5 +1,7 @@
 {...}: {
   imports = [
+    ./virtualisation
+
     ./boot.nix
     ./system.nix
     ./wayland.nix
@@ -8,6 +10,5 @@
     ./kanata.nix
 
     ./stylix.nix
-    ./virtualisation.nix
   ];
 }
