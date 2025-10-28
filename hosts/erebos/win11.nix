@@ -5,9 +5,9 @@
   inputs,
   ...
 }: let
-  cfg = config.wisp.virtualisation.nixvirt.win11;
+  cfg = config.wisp.virtualisation.nixvirt;
 
-  xmlTemplate = builtins.readFile ../../../../Configs/.local/share/backup/vm/win11.xml;
+  xmlTemplate = builtins.readFile ../../Configs/.local/share/backup/vm/win11.xml;
 
   xmlContent =
     builtins.replaceStrings [
