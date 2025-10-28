@@ -13,6 +13,8 @@
     ./disko-config.nix
 
     ./hardware-configuration.nix
+
+    ./win11.nix
   ];
 
   home-manager = {
@@ -64,6 +66,9 @@
       # enableCryptodisk = true;
     };
 
-    virtualisation.enable = true;
+    virtualisation = {
+      enable = true;
+      nixvirt.enable = true;
+    };
   };
 }
