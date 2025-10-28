@@ -73,6 +73,18 @@
       };
     };
 
+    homeConfigurations.hmStandalone = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = import inputs.nixpkgs {inherit system;};
+      modules = [
+        ./modules/hm
+        {
+          home.username = "roverp";
+          home.homeDirectory = "/home/roverp/";
+          targets.genericLinux.enable = true;
+        }
+      ];
+    };
+
     devShells.${system} = let
       pkgs = import inputs.nixpkgs {
         inherit system;
