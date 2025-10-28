@@ -13,6 +13,7 @@ in {
         {
           definition = inputs.nixvirt.lib.pool.writeXML {
             name = "vms";
+            uuid = "103eea23-19a3-4bc8-b06f-6116db69d16a";
             type = "dir";
             target.path = "/var/lib/libvirt/images/";
           };
@@ -38,6 +39,7 @@ in {
       domains = [
         {
           definition = inputs.nixvirt.lib.domain.writeXML {
+            type = "kvm";
             name = "archlinux";
             uuid = "862dc185-f7c6-4bb1-8b09-4b453abe6cbc";
 
@@ -47,11 +49,9 @@ in {
             };
 
             os = {
-              type = {
-                value = "hvm";
-                arch = "x86_64";
-                machine = "pc-q35-8.2";
-              };
+              type = "hvm";
+              arch = "x86_64";
+              machine = "pc-q35-8.2";
 
               loader = {
                 readonly = true;
@@ -65,9 +65,10 @@ in {
               };
 
               boot = [
-                {dev = "cdrom";}
                 {dev = "hd";}
+                {dev = "cdrom";}
               ];
+              bootmenu = {enable = true;};
             };
 
             vcpu = {
@@ -119,7 +120,7 @@ in {
             devices = {
               emulator = "${pkgs.qemu_kvm}/bin/qemu-system-x86_64";
 
-              disks = [
+              disk = [
                 {
                   type = "volume";
                   device = "disk";
@@ -159,32 +160,39 @@ in {
                 }
               ];
 
-              interfaces = [
-                {
-                  type = "network";
-                  source.network = "default";
-                  model.type = "virtio";
-                }
-              ];
+              interface = {
+                type = "network";
+                source = {
+                  network = "default";
+                };
+                model = {
+                  type = "virtio";
+                };
+              };
 
-              graphics = [
-                {
-                  type = "spice";
-                  autoport = true;
-                }
-              ];
+              graphics = {
+                type = "spice";
+                autoport = true;
+              };
 
-              video = [
-                {
-                  model = {
-                    type = "qxl";
+              video = {
+                model = {
+                  type = "qxl";
 
-                    ram = 65536;
-                    vram = 65536;
-                    heads = 1;
-                  };
-                }
-              ];
+                  ram = 65536;
+                  vram = 65536;
+                  heads = 1;
+                };
+              };
+
+              sound = {
+                model = "ich9";
+              };
+
+              audio = {
+                id = 1;
+                type = "spice";
+              };
 
               input = [
                 {
