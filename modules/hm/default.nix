@@ -3,7 +3,9 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  cfg = config.wisp;
+in {
   imports = [
     ./dev
     ./wayland
@@ -17,6 +19,14 @@
     ./zen-browser.nix
     ./syncthing.nix
   ];
+
+  options.wisp = {
+    genericLinux = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Only enable genericLinux compatible modules";
+    };
+  };
 
   # home-manager options go here
   home = {

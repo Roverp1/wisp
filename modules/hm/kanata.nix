@@ -9,7 +9,7 @@ in {
   options.wisp.kanata = {
     enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = !config.wisp.genericLinux;
       description = "Enable kanata module (no autostart | requires kanata system module to work)";
     };
   };

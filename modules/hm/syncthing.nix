@@ -8,7 +8,7 @@ in {
   options.wisp.programs.syncthing = {
     enable = lib.mkOption {
       type = lib.types.bool;
-      default = config.wisp.guiBundle.enable; # change this?
+      default = config.wisp.guiBundle.enable && !config.wisp.genericLinux; # change to allow without gui?
       description = "Enable syncthing module";
     };
   };
