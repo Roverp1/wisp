@@ -74,13 +74,23 @@
     };
 
     homeConfigurations.hmStandalone = inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = import inputs.nixpkgs {inherit system;};
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      extraSpecialArgs = {inherit inputs;};
+
       modules = [
+        inputs.stylix.homeModules.stylix
+
         ./modules/hm
+
         {
           home.username = "roverp";
           home.homeDirectory = "/home/roverp/";
           targets.genericLinux.enable = true;
+          wisp.genericLinux = true;
         }
       ];
     };
