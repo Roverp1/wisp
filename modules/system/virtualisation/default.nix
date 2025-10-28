@@ -10,7 +10,8 @@ in {
   imports = [
     inputs.nixvirt.nixosModules.default
     ./networks.nix
-    ./domains/win11.nix
+
+    ./domains/archlinux.nix
   ];
 
   options.wisp.virtualisation = {
@@ -23,39 +24,39 @@ in {
     nixvirt = {
       enable = lib.mkOption {
         type = lib.types.bool;
-        default = cfg.enable;
+        default = false;
         description = "Enable nixvirt configuration";
       };
-
-      win11.enable = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = "Enable windows11 virtual machine";
-      };
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    virtualisation.libvirtd = {
-      enable = true;
-
-      qemu = {
-        package = pkgs.qemu_kvm;
-
-        runAsRoot = true;
-        swtpm.enable = true;
-
-        ovmf = {
+  config = lib.mkMerge [
+    (lib.mkIf
+      cfg.enable
+      {
+        virtualisation.libvirtd = {
           enable = true;
-          packages = [pkgs.OVMFFull.fd];
+
+          qemu = {
+            package = pkgs.qemu_kvm;
+
+            runAsRoot = true;
+            swtpm.enable = true;
+
+            ovmf = {
+              enable = true;
+              packages = [pkgs.OVMFFull.fd];
+            };
+          };
         };
-      };
-    };
 
-    programs.virt-manager.enable = true;
+        programs.virt-manager.enable = true;
 
-    users.users.roverp.extraGroups = ["libvirtd"];
+        users.users.roverp.extraGroups = ["libvirtd"];
 
-    environment.systemPackages = with pkgs; [virtiofsd];
-  };
+        environment.systemPackages = with pkgs; [virtiofsd];
+      })
+
+    (lib.mkIf (cfg.enable && cfg.nixvirt.enable) {virtualisation.libvirt.enable = true;})
+  ];
 }
