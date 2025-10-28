@@ -77,6 +77,15 @@
       pkgs = import inputs.nixpkgs {
         inherit system;
         config.allowUnfree = true;
+
+        overlays = [
+          (final: prev: {
+            userPkgs = import inputs.nixpkgs-unstable {
+              inherit (prev) system;
+              config.allowUnfree = true;
+            };
+          })
+        ];
       };
 
       extraSpecialArgs = {inherit inputs;};
