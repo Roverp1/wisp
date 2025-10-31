@@ -14,7 +14,6 @@ in {
     ./san # TODO: remove as soon as possible
 
     ./xdg.nix
-    ./neovim.nix
     ./kanata.nix
     ./zen-browser.nix
     ./syncthing.nix

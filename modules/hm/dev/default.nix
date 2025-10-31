@@ -4,6 +4,7 @@
 
     ./shell
 
+    ./neovim.nix
     ./kitty.nix
     ./tmux.nix
     ./yazi.nix
