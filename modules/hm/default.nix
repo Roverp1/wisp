@@ -42,15 +42,16 @@ in {
     programs = {
       git = {
         enable = true;
-        userName = "Roverp";
-        userEmail = "yar.zubaha@proton.me";
+        settings = {
+          user.name = "Roverp";
+          user.email = "yar.zubaha@proton.me";
 
-        extraConfig = {
           init.defaultBranch = "main";
-        };
 
-        aliases = {
-          lg = "log --oneline --graph";
+          alias = {
+            lg = "log --oneline --graph";
+            ss = "status -s";
+          };
         };
       };
 
