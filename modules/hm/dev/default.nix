@@ -3,6 +3,7 @@
     ./cli.nix
 
     ./shell
+    ./langs
 
     ./neovim.nix
     ./kitty.nix

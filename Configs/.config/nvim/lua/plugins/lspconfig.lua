@@ -51,11 +51,24 @@ local lsp_servers = {
 	qmlls = {
 		cmd = { "qmlls", "-E" },
 	},
+
+	html = {},
+	cssls = {},
 	emmet_language_server = {},
 	ts_ls = {},
+
 	gopls = {},
+
 	bashls = {
 		filetypes = { "sh", "bash", "zsh" },
+	},
+
+	tinymist = {
+		settings = {
+			exportPdf = "onSave",
+			formatterMode = "typstyle",
+			semanticTokens = "enable",
+		},
 	},
 }
 

@@ -141,6 +141,7 @@ in {
               p.tree-sitter-qmljs
               p.tree-sitter-go
               p.tree-sitter-bash
+              p.tree-sitter-typst
 
               p.tree-sitter-javascript
               p.tree-sitter-typescript

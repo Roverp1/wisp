@@ -28,6 +28,12 @@
         sanBundle.enable = true;
         cliBundle.optional = true;
         guiBundle.optional = true;
+
+        langs = {
+          frontend = true;
+
+          typst.enable = true;
+        };
       };
     };
   };
