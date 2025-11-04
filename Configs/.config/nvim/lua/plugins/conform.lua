@@ -7,9 +7,12 @@ require("conform").setup({
 		nix = { "alejandra" },
 		go = { "goimports", "gofmt" },
 		qml = { "qmlformat" },
+		typst = { "typstyle" },
+
 		sh = { "shfmt" },
 		bash = { "shfmt" },
 		zsh = { "shfmt" },
+
 		css = prittier,
 		html = prittier,
 		javascript = prittier,
