@@ -83,7 +83,7 @@ in {
                 base0E = "${base0E}",
               }
 
-              ${builtins.readFile ./../../Configs/.config/nvim/lua/plugins/lualine.lua}
+              ${builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/lualine.lua}
             '';
           }
 
@@ -94,32 +94,32 @@ in {
 
           {
             plugin = nvim-lspconfig;
-            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/lspconfig.lua;
+            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/lspconfig.lua;
           }
 
           {
             plugin = userPlugins.blink-cmp;
-            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/blink.lua;
+            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/blink.lua;
           }
 
           {
             plugin = luasnip;
-            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/luasnip.lua;
+            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/luasnip.lua;
           }
 
           {
             plugin = conform-nvim;
-            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/conform.lua;
+            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/conform.lua;
           }
 
           {
             plugin = which-key-nvim;
-            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/which-key.lua;
+            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/which-key.lua;
           }
 
           {
             plugin = auto-session;
-            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/auto-session.lua;
+            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/auto-session.lua;
           }
 
           {
@@ -150,20 +150,20 @@ in {
               p.tree-sitter-css
               p.tree-sitter-scss
             ]);
-            config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/treesitter.lua;
+            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/treesitter.lua;
           }
         ]
         ++ lib.optional config.wisp.programs.yazi.enable {
           plugin = yazi-nvim;
-          config = toLuaFile ./../../Configs/.config/nvim/lua/plugins/yazi.lua;
+          config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/yazi.lua;
         };
 
       extraLuaConfig = ''
-        ${builtins.readFile ./../../Configs/.config/nvim/init.lua}
-        ${builtins.readFile ./../../Configs/.config/nvim/lua/plugins/init.lua}
-        ${builtins.readFile ./../../Configs/.config/nvim/lua/config/keymaps.lua}
-        ${builtins.readFile ./../../Configs/.config/nvim/lua/config/options.lua}
-        ${builtins.readFile ./../../Configs/.config/nvim/lua/config/autocmds.lua}
+        ${builtins.readFile ./../../../Configs/.config/nvim/init.lua}
+        ${builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/init.lua}
+        ${builtins.readFile ./../../../Configs/.config/nvim/lua/config/keymaps.lua}
+        ${builtins.readFile ./../../../Configs/.config/nvim/lua/config/options.lua}
+        ${builtins.readFile ./../../../Configs/.config/nvim/lua/config/autocmds.lua}
       '';
     };
   };

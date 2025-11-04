@@ -15,6 +15,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.pacages = with pkgs; [typst tinymist];
+    home.packages = with pkgs; [typst tinymist];
   };
 }
