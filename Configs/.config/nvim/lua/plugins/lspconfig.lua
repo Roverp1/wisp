@@ -65,7 +65,6 @@ local lsp_servers = {
 
 	tinymist = {
 		settings = {
-			exportPdf = "onSave",
 			formatterMode = "typstyle",
 			semanticTokens = "enable",
 		},
