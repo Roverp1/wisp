@@ -358,6 +358,22 @@
         "type": "github"
       }
     },
+    "nxpkgs-some-sass": {
+      "locked": {
+        "lastModified": 1762607814,
+        "narHash": "sha256-1QgfMw/IWMD0EX+ugyRYFMjXgjFN8C0T8CBmhfEKqmY=",
+        "owner": "Roverp1",
+        "repo": "nixpkgs",
+        "rev": "07a6bf9f04c03c6bf824e1223671f6c14307ff68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Roverp1",
+        "ref": "some-sass-language-server",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "quickshell": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -386,6 +402,7 @@
         "nixpkgs-opencode": "nixpkgs-opencode",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvirt": "nixvirt",
+        "nxpkgs-some-sass": "nxpkgs-some-sass",
         "quickshell": "quickshell",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",

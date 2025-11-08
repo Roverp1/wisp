@@ -54,6 +54,7 @@ local lsp_servers = {
 
 	html = {},
 	cssls = {},
+	somesass_ls = {},
 	emmet_language_server = {},
 	ts_ls = {},
 

@@ -14,6 +14,7 @@ require("conform").setup({
 		zsh = { "shfmt" },
 
 		css = prittier,
+		scss = prittier,
 		html = prittier,
 		javascript = prittier,
 		typescript = prittier,

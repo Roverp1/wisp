@@ -8,6 +8,7 @@
 
     # TODO: remove this
     nixpkgs-opencode.url = "github:NixOS/nixpkgs/21623b7ce795ea8496a8a69f166fc8863957418c";
+    nxpkgs-some-sass.url = "github:Roverp1/nixpkgs/some-sass-language-server";
 
     home-manager = {
       url = "github:nix-community/home-manager";

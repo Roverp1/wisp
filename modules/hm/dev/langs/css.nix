@@ -1,10 +1,13 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
   ...
 }: let
   cfg = config.wisp.langs.css;
+
+  some-sass = inputs.nxpkgs-some-sass.legacyPackages.x86_64-linux.some-sass-language-server;
 in {
   options.wisp.langs.css = {
     enable = lib.mkOption {
@@ -19,6 +22,8 @@ in {
       emmet-language-server
       vscode-langservers-extracted
       prettierd
+
+      some-sass
     ];
   };
 }
