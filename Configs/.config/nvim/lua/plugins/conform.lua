@@ -24,6 +24,8 @@ require("conform").setup({
 		json = prittier,
 		jsonc = prittier,
 		yaml = prittier,
+
+		java = { "google-java-format" },
 	},
 
 	formatters = {

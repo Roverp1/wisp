@@ -70,6 +70,8 @@ local lsp_servers = {
 			semanticTokens = "enable",
 		},
 	},
+
+	jdtls = {},
 }
 
 local x = vim.diagnostic.severity

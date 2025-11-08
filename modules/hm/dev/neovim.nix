@@ -149,6 +149,8 @@ in {
 
               p.tree-sitter-css
               p.tree-sitter-scss
+
+              p.tree-sitter-java
             ]);
             config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/treesitter.lua;
           }
