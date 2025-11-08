@@ -6,6 +6,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/ddd1826f294a0ee5fdc198ab72c8306a0ea73aa9";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # TODO: remove this
+    nixpkgs-opencode.url = "github:NixOS/nixpkgs/21623b7ce795ea8496a8a69f166fc8863957418c";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

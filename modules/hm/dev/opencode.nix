@@ -1,10 +1,14 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
   ...
 }: let
   cfg = config.roverp.programs.opencode;
+
+  # TODO: remove this
+  pinnedPackage = inputs.nixpkgs-opencode.legacyPackages.${"x86_64-linux"}.opencode;
 in {
   options = {
     roverp.programs.opencode.enable = lib.mkOption {
@@ -16,7 +20,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.opencode = {
       enable = true;
-      package = pkgs.userPkgs.opencode;
+      package = pinnedPackage;
 
       settings = {
         theme = lib.mkForce "system"; # leave mkForce or disable stylix module?
