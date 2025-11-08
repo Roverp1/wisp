@@ -29,6 +29,9 @@ in {
         ripgrep
         fd
         tree
+
+        zip
+        unzip
       ]
       ++ lib.optionals cfg.optional [gh];
   };
