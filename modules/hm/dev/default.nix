@@ -10,6 +10,7 @@
     ./tmux.nix
     ./yazi.nix
     ./opencode.nix
+    ./btop.nix
 
     ./fzf.nix
   ];
