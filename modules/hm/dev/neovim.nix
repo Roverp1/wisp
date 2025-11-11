@@ -127,6 +127,11 @@ in {
             config = toLua "require(\"nvim-autopairs\").setup()";
           }
 
+          {
+            plugin = nvim-ts-autotag;
+            config = toLua "require(\"nvim-ts-autotag\").setup()";
+          }
+
           vim-tmux-navigator
 
           telescope-fzf-native-nvim
