@@ -19,7 +19,6 @@ in {
       lua-language-server
       nixd
 
-      typescript-language-server
       gopls
 
       qt6.qtdeclarative
