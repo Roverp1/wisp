@@ -76,5 +76,7 @@
       enable = true;
       nixvirt.enable = true;
     };
+
+    gaming.enable = true;
   };
 }

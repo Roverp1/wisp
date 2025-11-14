@@ -8,6 +8,7 @@
     ./audio.nix
     ./xkb.nix
     ./kanata.nix
+    ./gaming.nix
 
     ./stylix.nix
   ];

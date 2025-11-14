@@ -18,7 +18,7 @@ in {
     home.packages = with pkgs; [
       lua-language-server
       nixd
-      emmet-language-server
+
       typescript-language-server
       gopls
 
@@ -55,7 +55,6 @@ in {
         [
           stylua
           alejandra
-          prettierd
           gotools
         ]
         ++ lib.optional config.wisp.programs.yazi.enable pkgs.userPkgs.yazi;
