@@ -19,9 +19,9 @@ in {
 
     icons = {
       enable = true;
-      package = pkgs.papirus-icon-theme;
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
+      package = pkgs.tela-icon-theme;
+      dark = "Tela-dark";
+      light = "Tela-dark";
     };
 
     fonts = {
