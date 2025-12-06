@@ -15,6 +15,7 @@
     ./hardware-configuration.nix
 
     ./win11.nix
+    ./asus.nix
   ];
 
   home-manager = {
