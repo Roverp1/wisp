@@ -149,6 +149,7 @@ in {
               p.tree-sitter-javascript
               p.tree-sitter-typescript
               p.tree-sitter-tsx
+              p.tree-sitter-json
 
               p.tree-sitter-css
               p.tree-sitter-scss
