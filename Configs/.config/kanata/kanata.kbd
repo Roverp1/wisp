@@ -64,14 +64,14 @@
     (on-idle-fakekey to-base tap 100)
 )
 
-  a-mod (tap-hold-release-keys $tap-time $hold-time (multi a @require-prior-idle-ms) lmeta $left-hand-keys)
-  s-mod (tap-hold-release-keys $tap-time $hold-time (multi s @require-prior-idle-ms) lalt $left-hand-keys)
-  d-mod (tap-hold-release-keys $tap-time $hold-time (multi d @require-prior-idle-ms) lshft $left-hand-keys)
-  f-mod (tap-hold-release-keys $tap-time $hold-time (multi f @require-prior-idle-ms) lctrl $left-hand-keys)
+  a-mod (tap-hold-release $tap-time $hold-time a lmeta)
+  s-mod (tap-hold-release $tap-time $hold-time s lalt)
+  d-mod (tap-hold-release $tap-time $hold-time d lshft)
+  f-mod (tap-hold-release $tap-time $hold-time f lctrl)
 
-  j-mod (tap-hold-release-keys $tap-time $hold-time (multi j @require-prior-idle-ms) rctrl $right-hand-keys)
-  k-mod (tap-hold-release-keys $tap-time $hold-time (multi k @require-prior-idle-ms) rshift $right-hand-keys)
-  l-mod (tap-hold-release-keys $tap-time $hold-time (multi l @require-prior-idle-ms) lalt $right-hand-keys)
-  ;-mod (tap-hold-release-keys $tap-time $hold-time (multi ; @require-prior-idle-ms) rmeta $right-hand-keys)
+  j-mod (tap-hold-release $tap-time $hold-time j rctrl)
+  k-mod (tap-hold-release $tap-time $hold-time k rshift)
+  l-mod (tap-hold-release $tap-time $hold-time l lalt)
+  ;-mod (tap-hold-release $tap-time $hold-time ; rmeta)
 )
 
