@@ -34,6 +34,7 @@ in {
     home.packages = with pkgs; [
       vesktop
       telegram-desktop
+      vlc
 
       nsxiv
     ];
