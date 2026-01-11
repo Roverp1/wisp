@@ -11,6 +11,7 @@ in {
     ./rofi.nix
     ./spicetify.nix
     ./zathura.nix
+    ./obs-studio.nix
 
     ./chromium.nix
   ];

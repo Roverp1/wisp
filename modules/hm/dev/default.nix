@@ -4,6 +4,7 @@
 
     ./shell
     ./langs
+    ./neovim
 
     ./neovim.nix
     ./kitty.nix

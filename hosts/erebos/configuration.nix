@@ -35,6 +35,8 @@
 
           typst.enable = true;
         };
+
+        programs.neovim.octoNvim.enable = true;
       };
     };
   };
