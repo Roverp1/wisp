@@ -33,6 +33,6 @@ in {
         zip
         unzip
       ]
-      ++ lib.optionals cfg.optional [gh];
+      ++ lib.optionals cfg.optional [gh pkgs.userPkgs.yt-dlp pkgs.userPkgs.gemini-cli];
   };
 }
