@@ -24,18 +24,20 @@ in {
         telescope-nvim
 
         {
-          plugin = pkgs.userPksgs.vimPlugins.octo-nvim;
+          plugin = pkgs.userPkgs.vimPlugins.octo-nvim;
           type = "lua";
           config =
             # lua
             ''
               require('octo').setup({
                 enable_builtin = true,
-                use_local_fs = true,
+                -- use_local_fs = true,
                 picker = "telescope",
               });
 
               vim.keymap.set("n", "<leader>oo", "<cmd>Octo<cr>", {desc = " Octo" })
+
+              vim.treesitter.language.register('markdown', 'octo')
             '';
         }
       ];
