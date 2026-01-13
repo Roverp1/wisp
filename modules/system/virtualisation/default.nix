@@ -8,6 +8,8 @@
   cfg = config.wisp.virtualisation;
 in {
   imports = [
+    ./docker.nix
+
     inputs.nixvirt.nixosModules.default
     ./networks.nix
 
