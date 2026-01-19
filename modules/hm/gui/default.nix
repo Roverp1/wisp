@@ -31,12 +31,14 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      vesktop
-      telegram-desktop
-      vlc
+    home.packages = with pkgs;
+      [
+        vesktop
+        telegram-desktop
+        vlc
 
-      nsxiv
-    ];
+        nsxiv
+      ]
+      ++ lib.optionals cfg.optional [pkgs.userPkgs.kdePackages.kdenlive];
   };
 }
