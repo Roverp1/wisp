@@ -20,7 +20,7 @@ in {
   };
 
   config = let
-    qs = inputs.quickshell.packages.${pkgs.system}.default;
+    qs = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
   in
     lib.mkIf cfg.enable {
       home.packages = [qs];
