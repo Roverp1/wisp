@@ -1,14 +1,10 @@
 {
-  inputs,
   config,
   lib,
   pkgs,
   ...
 }: let
   cfg = config.roverp.programs.opencode;
-
-  # TODO: remove this
-  pinnedPackage = inputs.nixpkgs-opencode.legacyPackages.${"x86_64-linux"}.opencode;
 in {
   options = {
     roverp.programs.opencode.enable = lib.mkOption {
@@ -20,13 +16,37 @@ in {
   config = lib.mkIf cfg.enable {
     programs.opencode = {
       enable = true;
-      package = pinnedPackage;
+      package = pkgs.userPkgs.opencode;
+
+      rules = ''
+        # Inset text (any quoted/simulated block inside your answer: examples, posts, letters, documentation, comments, etc.):
+
+        - be concise and to the point
+        - avoid filler, empty words
+        - don't over explain
+        - avoid repeating yourself (or the meaning already conveyed)
+        - don't try to be too perfect
+        - use hard/aggressive/sad/raw (sometimes cruel) words (not 'safe') sometimes. Avoid sounding corporate, be more sincere
+        - avoid using em dashes
+        - don't use emojis
+        - don't use parallel sentences ("it's not just about X, it's about Y")
+
+        # Code comments
+
+        - use inset text rules
+        - avoid writing 'what' comments which explain what code does
+        - preffer comments that explain 'why' code is there
+
+
+        ${builtins.readFile ../../../Configs/.config/opencode/rules/pr-guidelines.md}
+      '';
 
       settings = {
-        theme = lib.mkForce "system"; # leave mkForce or disable stylix module?
+        theme = "system";
+        default_agent = "plan";
+
         keybinds = {
           leader = "alt+b";
-          input_newline = "alt+enter";
         };
 
         lsp = {
@@ -36,7 +56,50 @@ in {
             extensions = [".qml"];
           };
         };
+
+        agent = {
+          cheap = {
+            mode = "primary";
+            model = "github-copilot/gpt-5-mini";
+            description = "Fast iterations for simple tasks and quick fixes";
+            temperature = 0.3;
+          };
+
+          explore = {
+            mode = "subagent";
+            model = "github-copilot/grok-code-fast-1";
+            description = "Fast codebase exploration - finding files, searching code, understanding structure";
+            temperature = 0.3;
+            tools = {
+              write = false;
+              edit = false;
+              bash = false;
+            };
+          };
+
+          docs-writer = {
+            mode = "subagent";
+            model = "github-copilot/gemini-3-flash-preview";
+            description = "Writes and maintains project documentation";
+            temperature = 0.3;
+            tools = {
+              bash = false;
+            };
+            prompt = ''
+              You are a technical writer. Create clear, comprehensive documentation.
+
+              Focus on:
+
+              - Clear explanations
+              - Proper structure
+              - Code examples
+              - User-friendly language
+            '';
+          };
+        };
       };
     };
+
+    stylix.targets.opencode.enable = false;
   };
 }
