@@ -42,7 +42,6 @@ in {
   config = lib.mkIf cfg.enable {
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
 
       font = "${config.stylix.fonts.monospace.name} ${toString config.stylix.fonts.sizes.popups}";
 
