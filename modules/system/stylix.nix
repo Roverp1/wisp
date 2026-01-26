@@ -21,7 +21,7 @@ in {
       enable = true;
       package = pkgs.tela-icon-theme;
       dark = "Tela-dark";
-      light = "Tela-dark";
+      light = "Tela-light";
     };
 
     fonts = {

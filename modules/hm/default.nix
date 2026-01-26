@@ -97,11 +97,6 @@ in {
       maxCacheTtlSsh = 28800;
     };
 
-    gtk.iconTheme = {
-      package = pkgs.tela-icon-theme;
-      name = "Tela-dark";
-    };
-
     stylix = {
       targets = {
         waybar.addCss = false;
