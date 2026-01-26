@@ -16,6 +16,12 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    # Link portal definitions when using home-manager with useUserPackages
+    environment.pathsToLink = [
+      "/share/applications"
+      "/share/xdg-desktop-portal"
+    ];
+
     fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
@@ -47,10 +53,11 @@ in {
       gvfs.enable = true;
     };
 
-    xdg.portal = {
-      enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    };
+    # defined in hm and can be removed from here?
+    # xdg.portal = {
+    #   enable = true;
+    #   extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    # };
 
     networking.firewall = {
       enable = true;

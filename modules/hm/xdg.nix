@@ -27,17 +27,27 @@ in {
       portal = {
         enable = true;
         extraPortals = with pkgs; [
-          pkgs.xdg-desktop-portal-hyprland
+          xdg-desktop-portal-hyprland
           xdg-desktop-portal-gtk
-          xdg-desktop-portal
         ];
         xdgOpenUsePortal = true;
+
+        config = {
+          common = {
+            default = ["hyprland" "gtk"];
+          };
+
+          hyprland = {
+            default = ["hyprland" "gtk"];
+          };
+        };
+
         # replace with `config.common.default = "hyprland;gtk";`?
-        configPackages = with pkgs; [
-          pkgs.xdg-desktop-portal-hyprland
-          xdg-desktop-portal-gtk
-          xdg-desktop-portal
-        ];
+        # configPackages = with pkgs; [
+        #   pkgs.xdg-desktop-portal-hyprland
+        #   xdg-desktop-portal-gtk
+        #   xdg-desktop-portal
+        # ];
       };
 
       mimeApps = {
