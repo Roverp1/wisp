@@ -39,6 +39,6 @@ in {
 
         nsxiv
       ]
-      ++ lib.optionals cfg.optional [pkgs.userPkgs.kdePackages.kdenlive];
+      ++ lib.optionals cfg.optional [pkgs.kdePackages.kdenlive];
   };
 }
