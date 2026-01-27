@@ -27,34 +27,48 @@ in {
     programs.spicetify = {
       enable = true;
 
-      # theme = spicePkgs.themes.text;
       theme = {
         name = "text";
-        src = ../../../Configs/.config/spicetify/themes/text;
+        src = "${spicePkgs.themes.text.src}";
 
-        # additonalCss = ''
-        #   .player-controls__buttons,
-        #   .main-nowPlayingBar-extraControls {
-        #     opacity: 1;
-        #   }
-        # '';
+        additionalCss = ''
+          :root {
+            --display-tracklist-image: block; /* none | block */
+          }
+
+          .player-controls__buttons,
+          .main-nowPlayingBar-extraControls {
+            opacity: 1;
+          }
+        '';
       };
 
       colorScheme = "custom";
       customColorScheme = with config.lib.stylix.colors; {
-        accent = base0B;
-        accent-active = base0B;
-        accent-inactive = base00;
-        banner = base0B;
-        border-active = base0B;
-        border-inactive = base02;
-        header = base03;
-        highlight = base01;
-        main = base00;
-        notification = base0D;
-        notification-error = base08;
-        subtext = base04;
-        text = base05;
+        # Backgrounds
+        main = base00; # Default Background
+        highlight = base02; # Selection Background (semantic match!)
+
+        # Foregrounds
+        text = base05; # Default Foreground, Caret
+        subtext = base04; # Dark Foreground (status bars)
+
+        # Primary accent (interactive elements)
+        accent = base0D; # Blue - Functions/Headings (primary UI actions)
+        accent-active = base0D; # Same for consistency
+        accent-inactive = base00; # Inactive state (background)
+
+        # UI structure
+        border-active = base0D; # Match primary accent
+        border-inactive = base03; # Comments/Invisibles (subtle)
+        header = base04; # Dark Foreground (better visibility than base03)
+
+        # Prominent elements
+        banner = base0D; # Match primary accent (or base0E for emphasis?)
+
+        # Notifications
+        notification = base0C; # Cyan - Support/Info (distinct from primary)
+        notification-error = base08; # Red - Errors/Deleted
       };
 
       alwaysEnableDevTools = true;
