@@ -34,6 +34,7 @@ in {
         additionalCss = ''
           :root {
             --display-tracklist-image: block; /* none | block */
+            --font-size-lyrics: 20px;
           }
 
           .player-controls__buttons,
