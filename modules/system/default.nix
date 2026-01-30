@@ -9,6 +9,7 @@
     ./xkb.nix
     ./kanata.nix
     ./gaming.nix
+    ./transmission.nix
 
     ./stylix.nix
   ];

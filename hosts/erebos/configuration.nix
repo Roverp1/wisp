@@ -81,5 +81,6 @@
     };
 
     gaming.enable = true;
+    transmission.enable = true;
   };
 }
