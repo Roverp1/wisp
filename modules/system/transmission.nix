@@ -20,11 +20,12 @@ in {
     downloadDir = "${userHome}/Downloads/torrents";
   in
     lib.mkIf cfg.enable {
-      systemd.tmpfiles.rules = [
-        "d ${downloadDir} 0755 ${username} users -"
-        "d ${downloadDir}/.incomplete 0755 ${username} users -"
-        "d ${downloadDir}/.watch 0755 ${username} users -"
-      ];
+      # now handled by hm and can be removed?
+      # systemd.tmpfiles.rules = [
+      #   "d ${downloadDir} 0755 ${username} users -"
+      #   "d ${downloadDir}/.incomplete 0755 ${username} users -"
+      #   "d ${downloadDir}/.watch 0755 ${username} users -"
+      # ];
 
       services.transmission = {
         enable = true;
@@ -58,7 +59,5 @@ in {
 
       networking.firewall.allowedTCPPorts = [51413];
       networking.firewall.allowedUDPPorts = [51413];
-
-      environment.systemPackages = with pkgs; [tremc];
     };
 }

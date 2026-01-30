@@ -57,6 +57,7 @@ in {
           "text/html" = "zen.desktop";
           "x-scheme-handler/http" = "zen-beta.desktop";
           "x-scheme-handler/https" = "zen-beta.desktop";
+          "x-scheme-handler/magnet" = "transmission-magnet.desktop";
           "x-scheme-handler/unknown" = "zen-beta.desktop";
         };
       };

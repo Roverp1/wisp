@@ -17,6 +17,7 @@ in {
     ./kanata.nix
     ./zen-browser.nix
     ./syncthing.nix
+    ./transmission.nix
 
     ./stylix.nix
   ];
