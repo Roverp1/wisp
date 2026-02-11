@@ -85,53 +85,58 @@ in {
           timeFormat = "%I:%M %p";
           dateFormat = "%F";
 
-          baseConfig = ''
-            # window and pane indexing
-            set -g base-index 1
-            set -g renumber-windows on
-            set -g pane-base-index 1
+          baseConfig =
+            # bash
+            ''
+              # window and pane indexing
+              set -g base-index 1
+              set -g renumber-windows on
+              set -g pane-base-index 1
 
-            # enable true colors
-            set -g default-terminal "tmux-256color"
-            set -ga terminal-overrides ",*:Tc"
+              # enable true colors
+              set -g default-terminal "tmux-256color"
+              set -ga terminal-overrides ",*:Tc"
 
-            set-window-option -g mode-keys vi
-            bind  -T copy-mode-vi    v           send -X begin-selection
-            bind  -T copy-mode-vi    C-v         send -X rectangle-toggle
-            bind  -T copy-mode-vi    y           send-keys -X copy-selection-and-cancel
-            bind  -T copy-mode-vi    Escape      send -X cancel
+              set-window-option -g mode-keys vi
+              bind  -T copy-mode-vi    v           send -X begin-selection
+              bind  -T copy-mode-vi    C-v         send -X rectangle-toggle
+              bind  -T copy-mode-vi    y           send-keys -X copy-selection-and-cancel
+              bind  -T copy-mode-vi    Escape      send -X cancel
 
-            bind  -T prefix   R       run-shell 'tmux source-file ~/.config/tmux/tmux.conf && tmux display-message "✔ Config reloaded!" || tmux display-message "⚠ Error reloading config!"'
+              bind  -T prefix   R       run-shell 'tmux source-file ~/.config/tmux/tmux.conf && tmux display-message "✔ Config reloaded!" || tmux display-message "⚠ Error reloading config!"'
 
-            # Enter resize mode
-            bind -T prefix r switch-client -T resize
+              bind  %  split-window -h -c "#{pane_current_path}"
+              bind '"' split-window -v -c "#{pane_current_path}"
 
-            # Define the 'resize' key table
-            bind -r -T resize h resize-pane -L 2
-            bind -r -T resize l resize-pane -R 2
-            bind -r -T resize j resize-pane -D 2
-            bind -r -T resize k resize-pane -U 2
-            bind -T resize Escape switch-client -T prefix
+              # Enter resize mode
+              bind -T prefix r switch-client -T resize
 
-            set -g pane-border-style "fg=${base03},bg=default"
-            set -g pane-active-border-style "fg=${base0D},bg=default"
+              # Define the 'resize' key table
+              bind -r -T resize h resize-pane -L 2
+              bind -r -T resize l resize-pane -R 2
+              bind -r -T resize j resize-pane -D 2
+              bind -r -T resize k resize-pane -U 2
+              bind -T resize Escape switch-client -T prefix
 
-            set -g display-panes-colour "${base03}"
-            set -g display-panes-active-colour "${base0D}"
+              set -g pane-border-style "fg=${base03},bg=default"
+              set -g pane-active-border-style "fg=${base0D},bg=default"
 
-            # Clock mode
-            set -g clock-mode-colour "${base0D}"
-            set -g clock-mode-style 12
+              set -g display-panes-colour "${base03}"
+              set -g display-panes-active-colour "${base0D}"
 
-            # Message
-            set -g message-style "fg=${base0D},bg=${base00}"
+              # Clock mode
+              set -g clock-mode-colour "${base0D}"
+              set -g clock-mode-style 12
 
-            # Command message
-            set -g message-command-style "fg=${base0D},bg=${base00}"
+              # Message
+              set -g message-style "fg=${base0D},bg=${base00}"
 
-            # Copy mode highlight
-            set -g mode-style "bg=${base0D},fg=${base05}"
-          '';
+              # Command message
+              set -g message-command-style "fg=${base0D},bg=${base00}"
+
+              # Copy mode highlight
+              set -g mode-style "bg=${base0D},fg=${base05}"
+            '';
 
           base16Colors = ''
             set -g @base00 "${config.lib.stylix.colors.withHashtag.base00}"
