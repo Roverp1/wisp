@@ -9,7 +9,7 @@ in {
   options.wisp.langs.typst = {
     enable = lib.mkOption {
       type = lib.types.bool;
-      default = false;
+      default = config.wisp.langs.optional;
       description = "Enable typst language module";
     };
   };

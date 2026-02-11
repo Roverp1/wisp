@@ -9,7 +9,7 @@ in {
   imports = [
     ./typst.nix
     ./css.nix
-    ./js.nix
+    ./javascript.nix
     ./sh.nix
   ];
 

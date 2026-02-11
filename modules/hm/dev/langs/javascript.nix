@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.wisp.langs.js;
+  cfg = config.wisp.langs.javascript;
 in {
-  options.wisp.langs.js = {
+  options.wisp.langs.javascript = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = true;
