@@ -10,6 +10,7 @@ in {
     ./typst.nix
     ./css.nix
     ./js.nix
+    ./sh.nix
   ];
 
   options.wisp.langs = {
@@ -17,6 +18,12 @@ in {
       type = lib.types.bool;
       default = false;
       description = "Enable frontend langs bundle (css, emmet, ts...)";
+    };
+
+    optional = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable optional lang support";
     };
   };
 

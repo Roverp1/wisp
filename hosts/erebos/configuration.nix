@@ -31,9 +31,9 @@
         guiBundle.optional = true;
 
         langs = {
-          frontend = true;
+          optional = true;
 
-          typst.enable = true;
+          frontend = true;
         };
 
         transmission.enable = true;
