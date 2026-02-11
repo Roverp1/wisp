@@ -98,47 +98,56 @@ in {
           zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
         '');
 
-        zshConfig = lib.mkOrder 1000 ''
-          WORDCHARS="_"
+        zshConfig =
+          lib.mkOrder 1000
+          # bash
+          ''
+            WORDCHARS="_"
 
-          # Options
-          setopt extended_glob
-          setopt glob_dots
+            # Options
+            setopt extended_glob
+            setopt glob_dots
 
-          # git-specific fzf completion
-          # FZF_COMPLETION_TRIGGER=""
-          source ${./../../../../Configs/.config/zsh/functions/fzf_complete_git.zsh}
+            # git-specific fzf completion
+            # FZF_COMPLETION_TRIGGER=""
+            source ${./../../../../Configs/.config/zsh/functions/fzf_complete_git.zsh}
 
-          # History
-          setopt hist_reduce_blanks
-          setopt hist_ignore_all_dups
-          setopt hist_save_no_dups
-          setopt hist_find_no_dups
+            # History
+            setopt hist_reduce_blanks
+            setopt hist_ignore_all_dups
+            setopt hist_save_no_dups
+            setopt hist_find_no_dups
 
-          # initialize functions or whatever
-          autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-          zle -N up-line-or-beginning-search
-          zle -N down-line-or-beginning-search
-          autoload edit-command-line; zle -N edit-command-line
+            # initialize functions or whatever
+            autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+            zle -N up-line-or-beginning-search
+            zle -N down-line-or-beginning-search
+            autoload edit-command-line; zle -N edit-command-line
 
-          zle -N fzf-git-files
+            zle -N fzf-git-files
 
-          # Key binds
-          bindkey -v
-          export KEYTIMEOUT=1
+            # Functions
+            bgp() {
+              nohup "$@" > /dev/null 2>&1 & disown
+            }
 
-          bindkey "^f" autosuggest-accept
+            # Key binds
+            bindkey -v
+            export KEYTIMEOUT=1
 
-          bindkey -M viins "^p" up-line-or-beginning-search
-          bindkey -M viins "^n" down-line-or-beginning-search
-          bindkey -M vicmd "j" down-line-or-beginning-search
-          bindkey -M vicmd "k" up-line-or-beginning-search
+            bindkey "^f" autosuggest-accept
 
-          bindkey -M viins "^w" backward-kill-word
+            bindkey -M viins "^p" up-line-or-beginning-search
+            bindkey -M viins "^n" down-line-or-beginning-search
+            bindkey -M vicmd "j" down-line-or-beginning-search
+            bindkey -M vicmd "k" up-line-or-beginning-search
 
-          bindkey -M viins "^g" fzf-git-files
-          bindkey "^x^e" edit-command-line
-        '';
+            bindkey -M viins "^w" backward-kill-word
+
+            bindkey -M viins "^g" fzf-git-files
+            bindkey "^x^e" edit-command-line
+
+          '';
       in
         lib.mkMerge [purePromptConfig completionConfig fzfTabConfig zshConfig];
     };
