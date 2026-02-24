@@ -131,6 +131,14 @@ in {
               nohup "$@" > /dev/null 2>&1 & disown
             }
 
+            ${lib.optionalString config.wisp.programs.bat.enable
+              # bash
+              ''
+                bam() {
+                  "$@" | bat -l man
+                }
+              ''}
+
             # Key binds
             bindkey -v
             export KEYTIMEOUT=1

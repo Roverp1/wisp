@@ -12,6 +12,7 @@
     ./yazi.nix
     ./opencode.nix
     ./btop.nix
+    ./bat.nix
 
     ./fzf.nix
   ];
