@@ -56,6 +56,15 @@ in {
               params.keep = "1";
             };
           };
+
+          "ReadEra-backups" = {
+            enable = true;
+
+            id = "hxq17-h3042";
+            path = "${config.home.homeDirectory}/code/readera-anki/readera-backups";
+            devices = ["Matrixx_spesn"];
+            type = "receiveonly";
+          };
         };
 
         options = {
