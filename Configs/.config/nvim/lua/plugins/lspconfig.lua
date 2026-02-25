@@ -57,6 +57,7 @@ local lsp_servers = {
 	somesass_ls = {},
 	emmet_language_server = {},
 	ts_ls = {},
+	basedpyright = {},
 
 	gopls = {},
 

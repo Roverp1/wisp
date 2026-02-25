@@ -146,6 +146,7 @@ in {
               p.tree-sitter-bash
               p.tree-sitter-typst
               p.tree-sitter-scheme
+              p.tree-sitter-python
 
               p.tree-sitter-javascript
               p.tree-sitter-typescript

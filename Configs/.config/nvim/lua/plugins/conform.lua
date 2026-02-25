@@ -8,6 +8,7 @@ require("conform").setup({
 		go = { "goimports", "gofmt" },
 		qml = { "qmlformat" },
 		typst = { "typstyle" },
+		python = { "ruff" },
 
 		sh = { "shfmt" },
 		bash = { "shfmt" },

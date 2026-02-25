@@ -11,6 +11,7 @@ in {
     ./css.nix
     ./javascript.nix
     ./sh.nix
+    ./python.nix
   ];
 
   options.wisp.langs = {

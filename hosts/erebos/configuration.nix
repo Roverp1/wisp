@@ -32,8 +32,9 @@
 
         langs = {
           optional = true;
-
           frontend = true;
+
+          python.enable = true;
         };
 
         transmission.enable = true;

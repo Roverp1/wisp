@@ -15,6 +15,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [python];
+    home.packages = with pkgs; [python3 basedpyright ruff];
   };
 }
