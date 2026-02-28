@@ -78,6 +78,7 @@ in {
 
         options = {
           localAnnounceEnabled = true;
+          urAccepted = 1;
         };
       };
     };
