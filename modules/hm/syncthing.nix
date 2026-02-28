@@ -65,6 +65,15 @@ in {
             devices = ["Matrixx_spesn"];
             type = "receiveonly";
           };
+
+          "AnkiEra-result" = {
+            enable = true;
+
+            id = "nrjac-fswf2";
+            path = "${config.home.homeDirectory}/code/readera-anki/result";
+            devices = ["Matrixx_spesn"];
+            type = "sendonly";
+          };
         };
 
         options = {
