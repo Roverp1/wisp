@@ -12,6 +12,7 @@ in {
     ./spicetify.nix
     ./zathura.nix
     ./obs-studio.nix
+    ./gaming.nix
 
     ./chromium.nix
   ];

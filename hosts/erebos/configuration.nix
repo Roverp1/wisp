@@ -38,6 +38,7 @@
         };
 
         transmission.enable = true;
+        gaming.enable = true;
 
         programs.neovim.octoNvim.enable = true;
       };
