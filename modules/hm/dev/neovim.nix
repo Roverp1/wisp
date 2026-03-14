@@ -91,7 +91,7 @@ in {
           }
 
           {
-            plugin = nvim-lspconfig;
+            plugin = userPlugins.nvim-lspconfig;
             config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/lspconfig.lua;
           }
 
@@ -147,6 +147,7 @@ in {
               p.tree-sitter-typst
               p.tree-sitter-scheme
               p.tree-sitter-python
+              p.tree-sitter-kotlin
 
               p.tree-sitter-javascript
               p.tree-sitter-typescript

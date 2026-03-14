@@ -1,5 +1,4 @@
 local M = {}
-local lspconfig = require("lspconfig")
 
 local lsp_servers = {
 	lua_ls = {
@@ -73,6 +72,8 @@ local lsp_servers = {
 	},
 
 	jdtls = {},
+
+	kotlin_language_server = {},
 }
 
 local x = vim.diagnostic.severity
@@ -111,5 +112,6 @@ for lsp, config in pairs(lsp_servers) do
 	}
 	local final_config = vim.tbl_extend("force", default_config, config)
 
-	lspconfig[lsp].setup(final_config)
+	vim.lsp.config(lsp, final_config)
+	vim.lsp.enable(lsp)
 end
