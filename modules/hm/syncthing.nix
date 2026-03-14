@@ -22,9 +22,13 @@ in {
 
       settings = {
         devices = {
-          "Matrixx_spesn" = {
+          "spesn" = {
             id = "MKRVTRT-FYGKE65-H6FOPMK-54UUD3V-ROVNRGR-663YTXO-32DNGCI-ZZXZBAL"; # private?
-            name = "Personal android phone";
+            name = "spesn";
+          };
+          "iris" = {
+            id = "MWSDPRV-JSNLUMK-3RNTMJV-BIHSJTM-MPP76G2-7QPD4EX-OH5DRDN-5CAPBAP";
+            name = "iris";
           };
         };
 
@@ -36,7 +40,7 @@ in {
 
             id = "pqlkx-xq3hi";
             path = "${syncthingFolder}/main";
-            devices = ["Matrixx_spesn"];
+            devices = ["spesn" "iris"];
             type = "sendreceive";
             versioning = {
               type = "simple";
@@ -44,12 +48,12 @@ in {
             };
           };
 
-          "AsterCraft-private" = {
+          "astercraft-private" = {
             enable = true;
 
             id = "qhwhm-oddda";
             path = "${config.home.homeDirectory}/Documents/AsterCraft-private";
-            devices = ["Matrixx_spesn"];
+            devices = ["spesn" "iris"];
             type = "sendreceive";
             versioning = {
               type = "simple";
@@ -57,28 +61,28 @@ in {
             };
           };
 
-          "ReadEra-backups" = {
+          "readera-backups" = {
             enable = true;
 
             id = "hxq17-h3042";
             path = "${config.home.homeDirectory}/code/readera-anki/readera-backups";
-            devices = ["Matrixx_spesn"];
+            devices = ["spesn" "iris"];
             type = "receiveonly";
           };
 
-          "AnkiEra-result" = {
+          "ankiera-result" = {
             enable = true;
 
             id = "nrjac-fswf2";
             path = "${config.home.homeDirectory}/code/readera-anki/result";
-            devices = ["Matrixx_spesn"];
+            devices = ["spesn" "iris"];
             type = "sendonly";
           };
         };
 
         options = {
           localAnnounceEnabled = true;
-          urAccepted = 1;
+          urAccepted = -1;
         };
       };
     };
