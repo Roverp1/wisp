@@ -65,8 +65,6 @@ in {
           };
         };
       };
-
-      suppressXdgMigrationWarning = true; # probably can be removed in the future
     };
 
     stylix.targets.zen-browser.enable = false;
