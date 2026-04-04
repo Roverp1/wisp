@@ -135,7 +135,7 @@ in {
               # bash
               ''
                 bam() {
-                  "$@" | bat -l man
+                  "$@" | bat -l man -p
                 }
               ''}
 
