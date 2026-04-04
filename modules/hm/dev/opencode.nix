@@ -41,13 +41,20 @@ in {
         ${builtins.readFile ../../../Configs/.config/opencode/rules/pr-guidelines.md}
       '';
 
-      settings = {
-        theme = "system";
-        default_agent = "plan";
+      # Enable after home-manager 26.05 update - and remove ~/.config/opencode/tui.jsonc
+      # tui = {
+      #   theme = "system";
+      #
+      #   keybinds = {
+      #     leader = "alt+b";
+      #   };
+      #   scroll_acceleration = {
+      #     enabled = true;
+      #   };
+      # };
 
-        keybinds = {
-          leader = "alt+b";
-        };
+      settings = {
+        default_agent = "plan";
 
         lsp = {
           # doesnt work?
