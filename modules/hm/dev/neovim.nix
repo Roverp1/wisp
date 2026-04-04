@@ -148,6 +148,7 @@ in {
               p.tree-sitter-scheme
               p.tree-sitter-python
               p.tree-sitter-kotlin
+              p.tree-sitter-c
 
               p.tree-sitter-javascript
               p.tree-sitter-typescript

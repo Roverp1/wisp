@@ -74,6 +74,7 @@ local lsp_servers = {
 	jdtls = {},
 
 	kotlin_language_server = {},
+	clangd = {},
 }
 
 local x = vim.diagnostic.severity

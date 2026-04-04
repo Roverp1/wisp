@@ -9,6 +9,7 @@ require("conform").setup({
 		qml = { "qmlformat" },
 		typst = { "typstyle" },
 		python = { "ruff" },
+		c = { "clang-format" },
 
 		sh = { "shfmt" },
 		bash = { "shfmt" },
