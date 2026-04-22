@@ -160,6 +160,7 @@ in {
 
               p.tree-sitter-java
               p.tree-sitter-xml
+              p.tree-sitter-prisma
             ]);
             config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/treesitter.lua;
           }

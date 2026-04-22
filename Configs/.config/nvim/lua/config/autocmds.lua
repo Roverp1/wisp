@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"yaml",
 		"markdown",
 		"nix",
+		"prisma",
 	},
 	callback = function()
 		vim.bo.tabstop = 2

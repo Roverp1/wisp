@@ -29,6 +29,7 @@ require("conform").setup({
 
 		java = { "google-java-format" },
 		kotlin = { "ktfmt" },
+		prisma = { "prisma_nix" },
 	},
 
 	formatters = {
@@ -43,6 +44,12 @@ require("conform").setup({
 
 		ktfmt = {
 			prepend_args = { "--kotlinlang-style" },
+		},
+
+		prisma_nix = {
+			command = "prisma",
+			args = { "format", "--schema", "$FILENAME" },
+			stdin = false,
 		},
 	},
 })

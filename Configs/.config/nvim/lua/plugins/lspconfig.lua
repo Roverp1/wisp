@@ -72,6 +72,7 @@ local lsp_servers = {
 	},
 
 	jdtls = {},
+	prismals = {},
 
 	kotlin_language_server = {},
 	clangd = {},
