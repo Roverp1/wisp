@@ -19,6 +19,14 @@ in {
       package = pkgs.userPkgs.opencode;
 
       rules = ''
+        # CLI tools
+        - when user provides GitHub link:
+          - use gh CLI when possible to fetch information
+          - if gh doesnt provide required functionality for fetching informaion - use api.github.com endpoints
+
+        - when task requires specific cli tool, but user's machine doesnt have it installed:
+          - inform user what required tools are missing, and suggest using `nix-shell -p` to temporarly install them
+
         # Inset text (any quoted/simulated block inside your answer: examples, posts, letters, documentation, comments, etc.):
 
         - be concise and to the point
