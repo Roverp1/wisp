@@ -15,6 +15,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [prismlauncher graalvmPackages.graalvm-ce];
+    home.packages = with pkgs; [prismlauncher graalvmPackages.graalvm-oracle_17];
   };
 }
