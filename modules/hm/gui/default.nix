@@ -13,6 +13,7 @@ in {
     ./zathura.nix
     ./obs-studio.nix
     ./gaming.nix
+    ./vesktop.nix
 
     ./chromium.nix
   ];
@@ -34,7 +35,6 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs;
       [
-        vesktop
         telegram-desktop
         vlc
 
