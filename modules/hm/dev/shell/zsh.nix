@@ -155,6 +155,11 @@ in {
             bindkey -M viins "^g" fzf-git-files
             bindkey "^x^e" edit-command-line
 
+
+
+            # might need better handling in case devenv is not installed
+            # would be nice to couple it with devenv configuration
+            eval "$(devenv hook zsh)"
           '';
       in
         lib.mkMerge [purePromptConfig completionConfig fzfTabConfig zshConfig];
