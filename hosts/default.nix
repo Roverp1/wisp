@@ -23,6 +23,9 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {inherit inputs;};
+    sharedModules = [
+      inputs.caelestia-shell.homeManagerModules.default
+    ];
   };
 
   networking.networkmanager.enable = true;

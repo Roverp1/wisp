@@ -41,6 +41,8 @@
         gaming.enable = true;
 
         programs.neovim.octoNvim.enable = true;
+
+        wayland.caelestia.enable = true;
       };
     };
   };

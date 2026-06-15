@@ -13,6 +13,8 @@ in {
     ./quickshell
 
     ./swappy.nix
+
+    ./caelestia.nix
   ];
 
   options.wisp.wayland = {
