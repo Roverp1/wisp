@@ -24,7 +24,7 @@ in {
         telescope-nvim
 
         {
-          plugin = pkgs.userPkgs.vimPlugins.octo-nvim;
+          plugin = pkgs.vimPlugins.octo-nvim;
           type = "lua";
           config =
             # lua

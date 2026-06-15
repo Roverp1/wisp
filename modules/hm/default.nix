@@ -65,7 +65,7 @@ in {
         enable = true;
         enableDefaultConfig = false;
 
-        matchBlocks = {
+        settings = {
           "*" = {
             addKeysToAgent = "yes";
           };
@@ -74,14 +74,14 @@ in {
             hostname = "github.com";
             user = "git";
             identityFile = "~/.ssh/id_Roverp";
-            identitiesOnly = true;
+            identitiesOnly = "yes";
           };
 
           "github-medoyed" = {
             hostname = "github.com";
             user = "git";
             identityFile = "~/.ssh/id_ed25519";
-            identitiesOnly = true;
+            identitiesOnly = "yes";
           };
         };
       };
@@ -108,6 +108,6 @@ in {
       };
     };
 
-    home.stateVersion = "25.05";
+    home.stateVersion = "26.05";
   };
 }

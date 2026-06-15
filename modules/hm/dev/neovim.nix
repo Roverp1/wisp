@@ -25,11 +25,6 @@ in {
     ];
 
     programs.neovim = let
-      toLua = str: "lua << EOF\n${str}\nEOF\n";
-      toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-
-      userPlugins = pkgs.userPkgs.vimPlugins;
-
       base00 = config.lib.stylix.colors.withHashtag.base00;
       base01 = config.lib.stylix.colors.withHashtag.base01;
       base02 = config.lib.stylix.colors.withHashtag.base02;
@@ -56,13 +51,13 @@ in {
           alejandra
           gotools
         ]
-        ++ lib.optional config.wisp.programs.yazi.enable pkgs.userPkgs.yazi;
+        ++ lib.optional config.wisp.programs.yazi.enable yazi;
 
       plugins = with pkgs.vimPlugins;
         [
           {
             plugin = lualine-nvim;
-            config = toLua ''
+            config = ''
               colors = {
                 base00 = "${base00}",
                 base01 = "${base01}",
@@ -83,51 +78,61 @@ in {
 
               ${builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/lualine.lua}
             '';
+            type = "lua";
           }
 
           {
             plugin = telescope-nvim;
-            config = toLua "require(\"telescope\").setup()";
+            config = "require(\"telescope\").setup()";
+            type = "lua";
           }
 
           {
-            plugin = userPlugins.nvim-lspconfig;
-            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/lspconfig.lua;
+            plugin = nvim-lspconfig;
+            config = builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/lspconfig.lua;
+            type = "lua";
           }
 
           {
-            plugin = userPlugins.blink-cmp;
-            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/blink.lua;
+            plugin = blink-cmp;
+            config = builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/blink.lua;
+            type = "lua";
           }
 
           {
             plugin = luasnip;
-            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/luasnip.lua;
+            config = builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/luasnip.lua;
+            type = "lua";
           }
 
           {
             plugin = conform-nvim;
-            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/conform.lua;
+            config = builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/conform.lua;
+            type = "lua";
           }
 
           {
             plugin = which-key-nvim;
-            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/which-key.lua;
+            config = builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/which-key.lua;
+            type = "lua";
           }
 
           {
             plugin = auto-session;
-            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/auto-session.lua;
+            config = builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/auto-session.lua;
+            type = "lua";
           }
 
           {
             plugin = nvim-autopairs;
-            config = toLua "require(\"nvim-autopairs\").setup()";
+            config = "require(\"nvim-autopairs\").setup()";
+            type = "lua";
           }
 
           {
             plugin = nvim-ts-autotag;
-            config = toLua "require(\"nvim-ts-autotag\").setup()";
+            config = "require(\"nvim-ts-autotag\").setup()";
+            type = "lua";
           }
 
           vim-tmux-navigator
@@ -162,15 +167,17 @@ in {
               p.tree-sitter-xml
               p.tree-sitter-prisma
             ]);
-            config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/treesitter.lua;
+            config = builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/treesitter.lua;
+            type = "lua";
           }
         ]
         ++ lib.optional config.wisp.programs.yazi.enable {
           plugin = yazi-nvim;
-          config = toLuaFile ./../../../Configs/.config/nvim/lua/plugins/yazi.lua;
+          config = builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/yazi.lua;
+          type = "lua";
         };
 
-      extraLuaConfig = ''
+      initLua = ''
         ${builtins.readFile ./../../../Configs/.config/nvim/init.lua}
         ${builtins.readFile ./../../../Configs/.config/nvim/lua/plugins/init.lua}
         ${builtins.readFile ./../../../Configs/.config/nvim/lua/config/keymaps.lua}

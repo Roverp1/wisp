@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: let
   cfg = config.roverp.programs.opencode;
@@ -16,9 +15,8 @@ in {
   config = lib.mkIf cfg.enable {
     programs.opencode = {
       enable = true;
-      package = pkgs.userPkgs.opencode;
 
-      rules = ''
+      context = ''
         # CLI tools
         - when user provides GitHub link:
           - use gh CLI when possible to fetch information
@@ -50,16 +48,16 @@ in {
       '';
 
       # Enable after home-manager 26.05 update - and remove ~/.config/opencode/tui.jsonc
-      # tui = {
-      #   theme = "system";
-      #
-      #   keybinds = {
-      #     leader = "alt+b";
-      #   };
-      #   scroll_acceleration = {
-      #     enabled = true;
-      #   };
-      # };
+      tui = {
+        theme = "system";
+
+        keybinds = {
+          leader = "alt+b";
+        };
+        scroll_acceleration = {
+          enabled = false;
+        };
+      };
 
       settings = {
         default_agent = "plan";
@@ -69,54 +67,6 @@ in {
           "qmlls" = {
             command = ["qmlls" "-E"];
             extensions = [".qml"];
-          };
-        };
-
-        agent = {
-          cheap = {
-            mode = "primary";
-            model = "github-copilot/gemini-3-flash-preview";
-            description = "Fast iterations for simple tasks and quick fixes";
-            temperature = 0.3;
-          };
-
-          # explore = {
-          #   mode = "subagent";
-          #   model = "github-copilot/grok-code-fast-1";
-          #   description = "Fast codebase exploration - finding files, searching code, understanding structure";
-          #   temperature = 0.3;
-          #   tools = {
-          #     write = false;
-          #     edit = false;
-          #     bash = false;
-          #   };
-          # };
-          #
-          # general = {
-          #   mode = "subagent";
-          #   model = "github-copilot/gemini-3-flash-preview";
-          #   description = "General-purpose agent for multi-step tasks and research";
-          #   temperature = 0.3;
-          # };
-
-          docs-writer = {
-            mode = "subagent";
-            model = "github-copilot/gemini-3-flash-preview";
-            description = "Writes and maintains project documentation";
-            temperature = 0.3;
-            tools = {
-              bash = false;
-            };
-            prompt = ''
-              You are a technical writer. Create clear, comprehensive documentation.
-
-              Focus on:
-
-              - Clear explanations
-              - Proper structure
-              - Code examples
-              - User-friendly language
-            '';
           };
         };
       };

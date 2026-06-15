@@ -3,20 +3,19 @@
 
   inputs = {
     # nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # TODO: remove this
-    nixpkgs-opencode.url = "github:NixOS/nixpkgs/21623b7ce795ea8496a8a69f166fc8863957418c";
+    # TODO: remove this when some-sass lsp would get merged
     nxpkgs-some-sass.url = "github:Roverp1/nixpkgs/some-sass-language-server";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
-      url = "github:nix-community/stylix/release-25.11";
+      url = "github:nix-community/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

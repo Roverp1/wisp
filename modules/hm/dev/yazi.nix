@@ -32,7 +32,6 @@ in {
 
     programs.yazi = {
       enable = true;
-      package = pkgs.userPkgs.yazi;
 
       enableZshIntegration = true;
     };

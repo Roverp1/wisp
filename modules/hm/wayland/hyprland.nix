@@ -12,6 +12,7 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       package = pkgs.hyprland;
+      configType = "hyprlang";
 
       extraConfig = ''
         ${builtins.readFile ./../../../Configs/.config/hypr/general.conf}

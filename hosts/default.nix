@@ -25,7 +25,6 @@
     extraSpecialArgs = {inherit inputs;};
   };
 
-  networking.wireless.enable = false; # Use NetworkManager instead
   networking.networkmanager.enable = true;
 
   i18n.defaultLocale = "en_US.UTF-8";
