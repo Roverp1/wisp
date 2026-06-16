@@ -48,13 +48,13 @@
       onPrimaryFixed = colors.base00;
       onPrimaryFixedVariant = colors.base00;
 
-      # Secondary (base0E - Magenta - Keywords, Storage)
-      secondary = colors.base0E;
+      # Secondary (base09 - Magenta - Keywords, Storage)
+      secondary = colors.base09;
       onSecondary = colors.base00;
       secondaryContainer = colors.base02;
-      onSecondaryContainer = colors.base0E;
-      secondaryFixed = colors.base0E;
-      secondaryFixedDim = colors.base0E;
+      onSecondaryContainer = colors.base09;
+      secondaryFixed = colors.base09;
+      secondaryFixedDim = colors.base09;
       onSecondaryFixed = colors.base00;
       onSecondaryFixedVariant = colors.base00;
 
