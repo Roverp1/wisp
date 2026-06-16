@@ -1,7 +1,5 @@
 local map = vim.keymap.set
 
-pcall(vim.keymap.del, "n", "C-L")
-
 map("i", "jk", "<ESC>")
 
 map("i", "<C-h>", "<Left>", { desc = "move left" })
