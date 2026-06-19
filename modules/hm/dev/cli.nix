@@ -33,6 +33,6 @@ in {
         zip
         unzip
       ]
-      ++ lib.optionals cfg.optional [gh pkgs.userPkgs.gemini-cli pkgs.userPkgs.devenv pkgs.userPkgs.antigravity-cli];
+      ++ lib.optionals cfg.optional [gh pkgs.userPkgs.devenv pkgs.userPkgs.antigravity-cli];
   };
 }
