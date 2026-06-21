@@ -62,6 +62,8 @@ in {
       settings = {
         default_agent = "plan";
 
+        autoupdate = false;
+
         lsp = {
           # doesnt work?
           "qmlls" = {
