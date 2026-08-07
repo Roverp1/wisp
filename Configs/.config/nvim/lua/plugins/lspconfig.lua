@@ -56,7 +56,17 @@ local lsp_servers = {
 	somesass_ls = {},
 	emmet_language_server = {},
 	jsonls = {},
-	ts_ls = {},
+	ts_ls = {
+		init_options = {
+			plugins = {
+				{
+					name = "@astrojs/ts-plugin",
+					location = vim.fn.getcwd() .. "/node_modules/@astrojs/ts-plugin",
+				},
+			},
+		},
+	},
+	astro = {},
 
 	basedpyright = {},
 
