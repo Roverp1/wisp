@@ -85,6 +85,12 @@ in {
             enabled = true;
           };
 
+          "Astro docs" = {
+            type = "remote";
+            url = "https://mcp.docs.astro.build/mcp";
+            enabled = true;
+          };
+
           mantine = {
             type = "local";
             command = [
