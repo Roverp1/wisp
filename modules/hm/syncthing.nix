@@ -22,9 +22,9 @@ in {
 
       settings = {
         devices = {
-          "spesn" = {
-            id = "MKRVTRT-FYGKE65-H6FOPMK-54UUD3V-ROVNRGR-663YTXO-32DNGCI-ZZXZBAL"; # private?
-            name = "spesn";
+          "spes" = {
+            id = "H45XOQU-R7ILWTU-7WB6VDC-2NFR6OR-VIZ4KCW-G6XQD6Y-YP5TYU3-5URORQX"; # private?
+            name = "spes";
           };
           "iris" = {
             id = "MWSDPRV-JSNLUMK-3RNTMJV-BIHSJTM-MPP76G2-7QPD4EX-OH5DRDN-5CAPBAP";
@@ -40,7 +40,7 @@ in {
 
             id = "pqlkx-xq3hi";
             path = "${syncthingFolder}/main";
-            devices = ["spesn" "iris"];
+            devices = ["spes" "iris"];
             type = "sendreceive";
             versioning = {
               type = "simple";
@@ -53,7 +53,7 @@ in {
 
             id = "qhwhm-oddda";
             path = "${config.home.homeDirectory}/Documents/AsterCraft-private";
-            devices = ["spesn" "iris"];
+            devices = ["spes" "iris"];
             type = "sendreceive";
             versioning = {
               type = "simple";
@@ -66,7 +66,7 @@ in {
 
             id = "hxq17-h3042";
             path = "${config.home.homeDirectory}/code/readera-anki/readera-backups";
-            devices = ["spesn" "iris"];
+            devices = ["iris"];
             type = "receiveonly";
           };
 
@@ -75,7 +75,16 @@ in {
 
             id = "nrjac-fswf2";
             path = "${config.home.homeDirectory}/code/readera-anki/result";
-            devices = ["spesn" "iris"];
+            devices = ["iris"];
+            type = "sendonly";
+          };
+
+          "polish-course-cards" = {
+            enable = true;
+
+            id = "jnagw-evdsm";
+            path = "${config.home.homeDirectory}/Documents/polish/out";
+            devices = ["iris"];
             type = "sendonly";
           };
         };
