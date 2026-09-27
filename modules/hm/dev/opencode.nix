@@ -5,6 +5,19 @@
   ...
 }: let
   cfg = config.roverp.programs.opencode;
+
+  playwrightMcpConfig = pkgs.writeText "playwright-mcp.json" (builtins.toJSON {
+    browser = {
+      browserName = "chromium";
+
+      launchOptions = {
+        executablePath = "${pkgs.chromium}/bin/chromium";
+        args = [
+          "--enable-features=WebMachineLearningNeuralNetwork,ExperimentalWebMachineLearningNeuralNetwork"
+        ];
+      };
+    };
+  });
 in {
   options = {
     roverp.programs.opencode.enable = lib.mkOption {
@@ -16,6 +29,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.opencode = {
       enable = true;
+      package = pkgs.userPkgs.opencode;
 
       context = ''
         # CLI tools
@@ -63,6 +77,11 @@ in {
       settings = {
         default_agent = "plan";
 
+        agent = {
+          explore.model = "openai/gpt-6-luna";
+          general.model = "openai/gpt-6-sol";
+        };
+
         autoupdate = false;
 
         lsp = {
@@ -108,11 +127,11 @@ in {
             type = "local";
             command = [
               "${pkgs.playwright-mcp}/bin/playwright-mcp"
+              "--config"
+              "${playwrightMcpConfig}"
             ];
             environment = {
               PLAYWRIGHT_MCP_ISOLATED = "1";
-              PLAYWRIGHT_MCP_BROWSER = "chromium";
-              PLAYWRIGHT_MCP_EXECUTABLE_PATH = "${pkgs.chromium}/bin/chromium";
             };
             enabled = true;
           };
