@@ -79,7 +79,7 @@ in {
 
         agent = {
           explore.model = "openai/gpt-6-luna";
-          general.model = "openai/gpt-6-sol";
+          general.model = "openai/gpt-6.1-sol";
         };
 
         autoupdate = false;
@@ -104,24 +104,24 @@ in {
             enabled = true;
           };
 
-          "Astro docs" = {
-            type = "remote";
-            url = "https://mcp.docs.astro.build/mcp";
-            enabled = true;
-          };
-
-          mantine = {
-            type = "local";
-            command = [
-              "bunx"
-              "-y"
-              "@mantine/mcp-server"
-            ];
-            environment = {
-              MANTINE_MCP_DATA_URL = "https://mantine.dev/mcp";
-            };
-            enabled = true;
-          };
+          # "Astro docs" = {
+          #   type = "remote";
+          #   url = "https://mcp.docs.astro.build/mcp";
+          #   enabled = true;
+          # };
+          #
+          # mantine = {
+          #   type = "local";
+          #   command = [
+          #     "bunx"
+          #     "-y"
+          #     "@mantine/mcp-server"
+          #   ];
+          #   environment = {
+          #     MANTINE_MCP_DATA_URL = "https://mantine.dev/mcp";
+          #   };
+          #   enabled = true;
+          # };
 
           playwright = {
             type = "local";
