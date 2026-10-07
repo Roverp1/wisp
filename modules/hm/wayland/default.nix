@@ -8,6 +8,7 @@
 in {
   imports = [
     ./hyprland.nix
+    ./lecture-recorder.nix
     ./waybar.nix
 
     ./quickshell

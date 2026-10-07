@@ -27,6 +27,7 @@
 
       wisp = {
         sanBundle.enable = true;
+        programs.lecture-recorder.enable = true;
         cliBundle.optional = true;
         guiBundle.optional = true;
 
