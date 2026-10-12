@@ -31,36 +31,20 @@ in {
       enable = true;
       package = pkgs.userPkgs.opencode;
 
-      context = ''
-        # CLI tools
-        - when user provides GitHub link:
-          - use gh CLI when possible to fetch information
-          - if gh doesnt provide required functionality for fetching informaion - use `api.github.com`/`raw.github.com` endpoints
+      context =
+        # markdown
+        ''
+          # CLI tools
+          - when user provides GitHub link:
+            - use gh CLI when possible to fetch information
+            - if gh doesnt provide required functionality for fetching informaion - use `api.github.com`/`raw.github.com` endpoints
 
-        - when task requires specific cli tool, but user's machine doesnt have it installed:
-          - inform user what required tools are missing, and suggest using `nix-shell -p` to temporarly install them
+          - when task requires specific cli tool, but user's machine doesnt have it installed:
+            - inform user what required tools are missing, and suggest using `nix-shell -p` to temporarly install them
 
-        # Inset text (any quoted/simulated block inside your answer: examples, posts, letters, documentation, comments, etc.):
-
-        - be concise and to the point
-        - avoid filler, empty words
-        - don't over explain
-        - avoid repeating yourself (or the meaning already conveyed)
-        - don't try to be too perfect
-        - use hard/aggressive/sad/raw (sometimes cruel) words (not 'safe') sometimes. Avoid sounding corporate, be more sincere
-        - avoid using em dashes
-        - don't use emojis
-        - don't use parallel sentences ("it's not just about X, it's about Y")
-
-        # Code comments
-
-        - use inset text rules
-        - avoid writing 'what' comments which explain what code does
-        - preffer comments that explain 'why' code is there
-
-
-        ${builtins.readFile ../../../Configs/.config/opencode/rules/pr-guidelines.md}
-      '';
+          ${builtins.readFile ../../../Configs/.config/opencode/rules/writing-guidelines.md}
+        '';
+      # ${builtins.readFile ../../../Configs/.config/opencode/rules/pr-guidelines.md}
 
       # Enable after home-manager 26.05 update - and remove ~/.config/opencode/tui.jsonc
       tui = {
@@ -80,6 +64,26 @@ in {
         agent = {
           explore.model = "openai/gpt-6-luna";
           general.model = "openai/gpt-6.1-sol";
+
+          "general-cheap" = {
+            description = "Lower-cost general-purpose agent for researching relatively simple-medidum questions and executing multi-step tasks. Use this agent to execute multiple units of work in parallel.";
+
+            mode = "subagent";
+            model = "openai/gpt-6-luna";
+            steps = 10;
+
+            permission = {
+              todowrite = "deny";
+              task = "deny";
+            };
+
+            prompt = ''
+              Handle the described tasks.
+              If the work needs broad architectural judgment, difficult debugging, or a
+              consequential tradeoff, report the evidence and unresolved
+              decision to the parent agent.
+            '';
+          };
         };
 
         autoupdate = false;
