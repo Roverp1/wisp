@@ -70,7 +70,7 @@ in {
 
             mode = "subagent";
             model = "openai/gpt-6-luna";
-            steps = 10;
+            steps = 100;
 
             permission = {
               todowrite = "deny";
